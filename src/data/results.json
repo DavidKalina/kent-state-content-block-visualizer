@@ -1,74 +1,110 @@
 [
   {
     "persona": "Business Owner",
-    "title": "Exploring Employee Ownership: Real-World Insights for Business Owners",
-    "description": "Discover real-world examples and expert insights on transitioning to employee ownership, tailored for business owners considering this path.",
-    "cta_text": "Explore episodes now",
+    "title": "Maximize Business Growth with Ohio’s Employee Ownership Opportunities",
+    "description": "Explore the benefits and support available for transitioning to employee ownership in Ohio, featuring insights from the upcoming Ohio Employee Ownership Conference.",
+    "cta_text": "Explore Conference Details",
+    "journey_stage": "consideration",
+    "relevance_score": 1,
+    "technical_level": 3
+  },
+  {
+    "persona": "Business Owner",
+    "title": "Exploring Employee Ownership: A Key Consideration for Business Owners",
+    "description": "Discover the benefits and processes of transitioning to employee ownership, with insights from experts and real-world case studies.",
+    "cta_text": "Explore Case Studies",
     "journey_stage": "consideration",
     "relevance_score": 0.9,
     "technical_level": 3
   },
   {
     "persona": "Business Owner",
-    "title": "Maximizing Business Transition: Insights from the Ohio Employee Ownership Conference",
-    "description": "Explore how transitioning to employee ownership can benefit your business, with insights from the upcoming Ohio Employee Ownership Conference.",
-    "cta_text": "Join the conference",
+    "title": "Maximizing Business Value: Ohio Employee Ownership Conference 2024",
+    "description": "Explore how the Ohio Employee Ownership Conference can help you transition to employee ownership, ensuring a sustainable future for your business.",
+    "cta_text": "Register Today",
     "journey_stage": "consideration",
     "relevance_score": 0.9,
     "technical_level": 3
   },
   {
     "persona": "Business Owner",
-    "title": "Transforming Your Business: The Power of Employee Ownership",
-    "description": "Explore the strategic benefits of transitioning to employee ownership, a proven method to secure your business's future and enhance community resilience.",
-    "cta_text": "Explore employee ownership",
-    "journey_stage": "consideration",
-    "relevance_score": 0.9,
-    "technical_level": 3
-  },
-  {
-    "persona": "Business Owner",
-    "title": "Maximize Your Business Potential: Consider Employee Ownership",
-    "description": "Explore the benefits of employee ownership to enhance your business's sustainability and growth during the 2024 Annual Ohio Employee Ownership Conference.",
-    "cta_text": "Explore Options",
+    "title": "Harnessing Employee Ownership: Insights from Kendeda's Big Bet Initiative",
+    "description": "Explore how Kendeda's transformative investment has propelled employee ownership, with insights from key stakeholders and real-world examples of business transitions.",
+    "cta_text": "Explore Employee Ownership",
     "journey_stage": "consideration",
     "relevance_score": 0.9,
     "technical_level": 3
   },
   {
     "persona": "Educator",
-    "title": "Empowering Educators: Exploring the Role of Cooperatives in Education",
-    "description": "Discover how educators can adopt cooperative models to enhance learning environments and foster community engagement.",
-    "cta_text": "Explore Cooperative Education",
+    "title": "Empowering Educators: Adopting Employee Ownership in Ohio",
+    "description": "Discover how educators can lead the charge in adopting employee ownership models through the Ohio Employee Ownership Center's resources and programs.",
+    "cta_text": "Explore Workshops",
     "journey_stage": "adoption",
     "relevance_score": 0.9,
     "technical_level": 3
   },
   {
     "persona": "Educator",
-    "title": "Empowering Educators: The 2024 Ohio Employee Ownership Conference",
-    "description": "Discover how the Ohio Employee Ownership Center (OEOC) is fostering educational adoption of employee-owned cooperative models through targeted workshops and resources.",
-    "cta_text": "Join the Conference",
+    "title": "Empowering Educators: Embracing Employee-Owned Cooperatives",
+    "description": "Dive into the world of employee-owned cooperatives and discover how educators can lead their adoption to foster community wealth and sustainable development.",
+    "cta_text": "Explore cooperative resources",
     "journey_stage": "adoption",
     "relevance_score": 0.9,
     "technical_level": 3
   },
   {
     "persona": "Educator",
-    "title": "35th Annual Ohio Employee Ownership Conference: A Guide for Educators",
-    "description": "Explore how the 35th Annual Ohio Employee Ownership Conference supports educators in adopting employee ownership models through resources, networking, and expert insights.",
-    "cta_text": "Join the Conference Today",
-    "journey_stage": "adoption",
-    "relevance_score": 0.9,
-    "technical_level": 3
-  },
-  {
-    "persona": "Educator",
-    "title": "Embrace Employee Ownership: Join the 2024 Ohio Employee Owner Retreat",
-    "description": "Discover the power of employee ownership at the Ohio Employee Owner Retreat. Engage with peers, enhance your leadership skills, and learn how to foster an ownership culture within your company.",
+    "title": "Empower Your Team with the Ohio Employee Owner Retreat",
+    "description": "Discover how the Ohio Employee Owner Retreat can transform your organization’s culture by equipping employee-owners with essential skills to foster a thriving ESOP community.",
     "cta_text": "Register Now",
     "journey_stage": "adoption",
     "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Educator",
+    "title": "Empower Your Teaching with Ohio Employee Ownership Programs",
+    "description": "Discover how Ohio Employee Ownership Center’s programs can enhance your educational approach by fostering an ownership culture that boosts employee satisfaction and performance.",
+    "cta_text": "Explore Our Programs",
+    "journey_stage": "adoption",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Employee",
+    "title": "Discover the Benefits of Employee Ownership: The National Employee Owner Summit",
+    "description": "Learn how the National Employee Owner Summit empowers non-managerial employees to thrive in ESOP environments through engaging activities, networking, and expert-led sessions.",
+    "cta_text": "Reserve Your Spot",
+    "journey_stage": "awareness",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Employee",
+    "title": "Understanding Employee Ownership: An Introduction",
+    "description": "Discover the concept of employee ownership and learn how it can transform businesses and communities by providing economic stability and growth.",
+    "cta_text": "Explore employee ownership",
+    "journey_stage": "awareness",
+    "relevance_score": 0.8,
+    "technical_level": 3
+  },
+  {
+    "persona": "Employee",
+    "title": "Introduction to Employee Ownership: Discover the Benefits",
+    "description": "Learn how employee ownership can transform your workplace! Discover the basics and benefits of becoming a part of an employee-owned cooperative.",
+    "cta_text": "Explore Employee Ownership",
+    "journey_stage": "awareness",
+    "relevance_score": 0.8,
+    "technical_level": 3
+  },
+  {
+    "persona": "Employee",
+    "title": "Discover Employee Ownership: The Benefits and Opportunities",
+    "description": "An introduction to the concept of employee ownership, exploring its benefits and opportunities for employees seeking to understand more about this business model.",
+    "cta_text": "Explore Employee Ownership",
+    "journey_stage": "awareness",
+    "relevance_score": 0.8,
     "technical_level": 3
   }
 ]
