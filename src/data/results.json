@@ -1,0 +1,74 @@
+[
+  {
+    "persona": "Business Owner",
+    "title": "Exploring Employee Ownership: Real-World Insights for Business Owners",
+    "description": "Discover real-world examples and expert insights on transitioning to employee ownership, tailored for business owners considering this path.",
+    "cta_text": "Explore episodes now",
+    "journey_stage": "consideration",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Business Owner",
+    "title": "Maximizing Business Transition: Insights from the Ohio Employee Ownership Conference",
+    "description": "Explore how transitioning to employee ownership can benefit your business, with insights from the upcoming Ohio Employee Ownership Conference.",
+    "cta_text": "Join the conference",
+    "journey_stage": "consideration",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Business Owner",
+    "title": "Transforming Your Business: The Power of Employee Ownership",
+    "description": "Explore the strategic benefits of transitioning to employee ownership, a proven method to secure your business's future and enhance community resilience.",
+    "cta_text": "Explore employee ownership",
+    "journey_stage": "consideration",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Business Owner",
+    "title": "Maximize Your Business Potential: Consider Employee Ownership",
+    "description": "Explore the benefits of employee ownership to enhance your business's sustainability and growth during the 2024 Annual Ohio Employee Ownership Conference.",
+    "cta_text": "Explore Options",
+    "journey_stage": "consideration",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Educator",
+    "title": "Empowering Educators: Exploring the Role of Cooperatives in Education",
+    "description": "Discover how educators can adopt cooperative models to enhance learning environments and foster community engagement.",
+    "cta_text": "Explore Cooperative Education",
+    "journey_stage": "adoption",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Educator",
+    "title": "Empowering Educators: The 2024 Ohio Employee Ownership Conference",
+    "description": "Discover how the Ohio Employee Ownership Center (OEOC) is fostering educational adoption of employee-owned cooperative models through targeted workshops and resources.",
+    "cta_text": "Join the Conference",
+    "journey_stage": "adoption",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Educator",
+    "title": "35th Annual Ohio Employee Ownership Conference: A Guide for Educators",
+    "description": "Explore how the 35th Annual Ohio Employee Ownership Conference supports educators in adopting employee ownership models through resources, networking, and expert insights.",
+    "cta_text": "Join the Conference Today",
+    "journey_stage": "adoption",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  },
+  {
+    "persona": "Educator",
+    "title": "Embrace Employee Ownership: Join the 2024 Ohio Employee Owner Retreat",
+    "description": "Discover the power of employee ownership at the Ohio Employee Owner Retreat. Engage with peers, enhance your leadership skills, and learn how to foster an ownership culture within your company.",
+    "cta_text": "Register Now",
+    "journey_stage": "adoption",
+    "relevance_score": 0.9,
+    "technical_level": 3
+  }
+]
