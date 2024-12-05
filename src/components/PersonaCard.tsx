@@ -98,7 +98,7 @@ const PersonaContentCard = ({
       </CardHeader>
 
       <CardContent className="flex-grow">
-        <p className="text-gray-600 line-clamp-3">{description}</p>
+        <p className="text-gray-600 line-clamp-4">{description}</p>
       </CardContent>
 
       <CardFooter className="flex-none pt-4">
