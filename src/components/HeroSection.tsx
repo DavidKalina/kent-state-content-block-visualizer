@@ -19,30 +19,31 @@ const HeroSection = () => {
           {/* Unified benefit statement */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900">
-              Transform Your Workplace Through
+              Unlock the Full Value of
               <span className="block text-blue-600">Employee Ownership</span>
             </h1>
 
             <p className="mx-auto max-w-2xl text-lg md:text-xl text-gray-600">
-              One platform to educate, empower, and guide your entire organization through
-              successful employee ownership transition — increasing engagement, retention, and
-              shared success.
+              Employee ownership is key to any organization's overall success and long-term growth.
+              See how employee ownership not only increases engagement it also increases retention
+              leading to increased production and lower costs due to less turnover.
             </p>
           </div>
 
           {/* Key benefits */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto mt-8">
             <div className="p-4">
-              <h3 className="font-semibold text-gray-900">Simplified Learning</h3>
-              <p className="text-sm text-gray-600">Curated resources for every knowledge level</p>
+              <h3 className="font-semibold text-gray-900">Saves & Creates new Jobs</h3>
             </div>
             <div className="p-4">
-              <h3 className="font-semibold text-gray-900">Guided Journey</h3>
-              <p className="text-sm text-gray-600">Step-by-step transition support</p>
+              <h3 className="font-semibold text-gray-900">
+                Increase Worker Engagement & Productivity
+              </h3>
             </div>
             <div className="p-4">
-              <h3 className="font-semibold text-gray-900">Measurable Impact</h3>
-              <p className="text-sm text-gray-600">Track progress and engagement</p>
+              <h3 className="font-semibold text-gray-900">
+                Plays an important role in Regional Economic Development
+              </h3>
             </div>
           </div>
 
