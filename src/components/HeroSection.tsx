@@ -31,7 +31,7 @@ const HeroSection = () => {
           </div>
 
           {/* Key benefits */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto mt-8">
             <div className="p-4">
               <h3 className="font-semibold text-gray-900">Simplified Learning</h3>
               <p className="text-sm text-gray-600">Curated resources for every knowledge level</p>

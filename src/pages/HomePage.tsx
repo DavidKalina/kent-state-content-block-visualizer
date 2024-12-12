@@ -84,7 +84,7 @@ const HomePage = () => {
       <Navbar />
       <HeroSection />
       <ScreenMarquee />
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-7xl">
         <div
           className={`
             ${
