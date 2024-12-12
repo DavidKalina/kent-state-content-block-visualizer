@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import LandingCard from "@/components/LandingPageCard";
 import Navbar from "@/components/Navbar";
+import ScreenMarquee from "@/components/ScreenMarquee";
 import SocialProof from "@/components/SocialProof";
 import { useState } from "react";
 
@@ -76,9 +77,10 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+    <div className="min-h-screen bg-gray-50 p-8 md:p-16">
       <Navbar />
       <HeroSection />
+      <ScreenMarquee />
       <div className="mx-auto max-w-4xl">
         <div
           className={`
