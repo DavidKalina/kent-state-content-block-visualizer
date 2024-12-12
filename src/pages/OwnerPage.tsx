@@ -84,9 +84,9 @@ const JointPage = () => {
       <Navbar />
       <SplitHeroSection
         images={[imageOne, imageTwo, imageThree, imageFour, imageFive]}
-        title="2024 Ohio Employee Ownership Conference"
+        title="2024 Ohio Employee Owner Retreat: Empowering Educators in Employee Ownership"
         highlightedTitle=""
-        description="Explore the benefits and implementation strategies of employee ownership models in educational settings. This guide is tailored for educators looking to adopt these innovative approaches to enhance school management and culture."
+        description="The 2024 Ohio Employee Owner Retreat offers a distinctive opportunity for educators and non-managerial employees to engage deeply with the principles of employee ownership. Hosted by the Ohio Employee Ownership Center, this two-day retreat is crafted to enhance understanding and leadership capabilities among ESOP participants"
       />
       <div className="mx-auto max-w-4xl">
         <div

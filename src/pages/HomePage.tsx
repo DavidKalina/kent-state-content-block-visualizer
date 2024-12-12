@@ -98,13 +98,13 @@ const HomePage = () => {
             <LandingCard {...generalData} />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...ownerData} onClick={() => navigate("/owner")} />
+            <LandingCard {...ownerData} />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...promoData} />
+            <LandingCard {...promoData} onClick={() => navigate("/employee")} />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...employeeData} onClick={() => navigate("/employee")} />
+            <LandingCard {...employeeData} onClick={() => navigate("/owner")} />
           </div>
         </div>
       </div>
