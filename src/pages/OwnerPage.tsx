@@ -84,7 +84,7 @@ const JointPage = () => {
         >
           {data.map((content) => (
             <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-              <ArticleCard {...content} />
+              <ArticleCard {...content} cta_text="Read More" />
             </div>
           ))}
         </div>

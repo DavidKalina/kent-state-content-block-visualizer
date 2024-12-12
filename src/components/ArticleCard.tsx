@@ -30,7 +30,7 @@ const ArticleCard = ({
   return (
     <Card
       className={`flex flex-col transition-all duration-300 hover:shadow-lg relative overflow-hidden ${
-        isExpanded ? "h-auto" : "h-[400px]"
+        isExpanded ? "h-auto" : "h-[300px]"
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
