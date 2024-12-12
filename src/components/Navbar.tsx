@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
+
+  const navigate = useNavigate();
 
   const getLinkClassName = (path: string) => {
     const baseClasses = "transition-colors text-sm font-medium relative";
@@ -25,11 +27,11 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo/Organization Name */}
-            <div className="flex-shrink-0">
+            <Link to="/" className="flex-shrink-0">
               <span className="text-white text-xl font-bold tracking-tight">
                 Ohio Employee Ownership Center
               </span>
-            </div>
+            </Link>
 
             {/* Navigation Links */}
             <div className="flex items-center gap-8">

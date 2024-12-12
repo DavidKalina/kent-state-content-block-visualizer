@@ -48,16 +48,16 @@ const HomePage = () => {
   const employeeData = {
     persona: "Employee",
     journey_stage: "awareness",
-    title: "Discover the Ohio Employee Owner Retreat: Empowering Employee-Owners",
+    title: "Introduction to Employee Ownership: Exploring the Benefits and Opportunities",
     description:
-      "Unlock the potential of employee ownership at the Ohio Employee Owner Retreat. Learn, network, and grow with fellow employee-owners at this transformative event.",
+      "Discover the basics of employee ownership and how it can transform your workplace. Learn about the benefits, success stories, and the potential impact on your career and company culture.",
     optimized_content:
-      "The Ohio Employee Owner Retreat is a two-day immersive training program designed to empower non-managerial employees with the skills and insights needed to thrive in an employee-owned company. Hosted by the Ohio Employee Ownership Center, this event provides a unique opportunity to learn from experts and network with peers from other ESOP (Employee Stock Ownership Plan) companies.",
-    cta_text: "Register Now",
+      "Employee ownership is a powerful concept that can reshape the dynamics of a workplace. At its core, employee ownership involves employees acquiring an ownership stake in the company they work for. This model not only aligns the interests of employees and employers but also fosters a culture of shared responsibility and motivation.\n\nImagine working in an environment where your contributions directly impact your share of the company's success. This is the reality for many employee-owned businesses. Studies have shown that such companies often experience higher productivity, improved job satisfaction, and greater resilience in economic downturns.\n\nA compelling example of this is Hamill Manufacturing, a company that transitioned from family-owned to employee-owned. Jeff Kelly, the former CEO, chose to sell the company to its employees, valuing legacy and loyalty. This shift not only preserved the company's ethos but also empowered employees to take ownership of their work and future.\n\nUnderstanding the fundamentals of employee ownership can open up new possibilities for your career and your organization. Whether you're an employee, a business owner, or someone interested in innovative business models, exploring employee ownership might be the key to unlocking untapped potential.",
+    cta_text: "Explore Employee Ownership",
     relevance_score: 0.9,
     technical_level: 3,
     transformation_rationale:
-      'The content was optimized to align with the "awareness" stage of the employee persona\'s journey. This stage focuses on providing clear, accessible information about the benefits and opportunities of employee ownership. The original content was condensed and structured to highlight key aspects of the event, such as learning outcomes, networking opportunities, and practical details, ensuring it is engaging and easy to digest for employees who may not be familiar with ESOPs. The testimonials were retained to add credibility and encourage participation. The technical level was set to 2 to ensure the information is understandable to a broad audience without requiring specialized knowledge.',
+      "The content has been optimized for employees at the awareness stage of their journey. The title and description are crafted to pique curiosity and provide a clear overview of what employee ownership entails. The content is structured to be informative yet engaging, using relatable examples like Hamill Manufacturing to illustrate the concept's impact. The language is kept simple to ensure accessibility, given the technical level of 2, suitable for individuals with little to no prior knowledge of employee ownership. The call-to-action encourages further exploration, aligning with the goal of increasing awareness.",
     diversity_score: 0.185245901639343,
     total_persona_stage_content: 122,
   };
@@ -103,10 +103,10 @@ const HomePage = () => {
             <LandingCard {...ownerData} />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...promoData} onClick={() => navigate("/employee")} />
+            <LandingCard {...promoData} onClick={() => navigate("/promo")} />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...employeeData} onClick={() => navigate("/owner")} />
+            <LandingCard {...employeeData} onClick={() => navigate("/employee")} />
           </div>
         </div>
       </div>

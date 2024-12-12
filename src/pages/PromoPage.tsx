@@ -2,12 +2,10 @@ import AuthModal from "@/components/AuthModal";
 import Navbar from "@/components/Navbar";
 import SplitHeroSection from "@/components/SplitHeroSection";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const JointPage = () => {
   const { pathname } = useLocation();
-
-  const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
 
@@ -59,23 +57,6 @@ const JointPage = () => {
   //   },
   // ];
 
-  const data = {
-    persona: "Employee",
-    journey_stage: "awareness",
-    title: "Exploring Ohio's Initiatives",
-    description:
-      "Discover the basics of employee ownership and how Ohio is leading the way with innovative programs and events designed to enhance employee engagement and business success.",
-    optimized_content:
-      "Employee ownership is an empowering business model where employees hold significant ownership stakes in the companies they work for. This structure fosters a sense of responsibility and motivation, contributing to a thriving workplace culture and business growth.\n\nIn Ohio, the Ohio Employee Ownership Center (OEOC) serves as a pivotal resource, offering a wealth of programs, events, and training to promote and support employee ownership. The OEOC's annual conference is a key event that brings together industry experts, business leaders, and employees to explore the latest trends and strategies in employee ownership.\n\nThe OEOC provides various resources, including:\n- **Employee Ownership 101**: A foundational guide for understanding the basics of employee ownership.\n- **Succession Planning**: Helping businesses transition to employee ownership smoothly.\n- **Networking Events**: Opportunities for employees and business leaders to connect and share insights.\n\nBy engaging with these programs, employees can gain a deeper understanding of their roles as business owners, leading to enhanced job satisfaction and organizational success. Whether you're new to the concept or looking to expand your knowledge, the OEOC offers tools and guidance tailored to your needs.",
-    cta_text: "Explore Programs",
-    relevance_score: 0.8,
-    technical_level: 3,
-    transformation_rationale:
-      "The content has been optimized to cater to employees at the awareness stage of their journey. The simplified overview of employee ownership concepts helps introduce the idea to those unfamiliar with it. By highlighting Ohio's initiatives, the content aligns with regional interests, making it more relevant to the target audience. The structured format, focusing on key offerings from the OEOC, provides clear, digestible information, supporting the suggestion to use guide formats. The technical level is set at 2, ensuring accessibility for employees without prior technical knowledge. The CTA encourages further exploration, aligning with the goal of increasing awareness and engagement.",
-    diversity_score: 0.0852459016393429,
-    total_persona_stage_content: 122,
-  };
-
   return (
     <>
       <AuthModal
@@ -84,22 +65,21 @@ const JointPage = () => {
           setShowModal(false);
         }}
         onSuccess={() => {
-          navigate("/employee/1");
+          setShowModal(false);
         }}
       />
       <div className="min-h-screen bg-gray-50 p-4 md:p-8">
         <Navbar />
-
         <SplitHeroSection
           rightSideContent={{
-            heading: data.title,
-            text: data.optimized_content,
+            heading: "Discover More About Our Platform",
+            text: "Our comprehensive solution offers cutting-edge tools and resources designed to streamline your organization's transition to employee ownership. With expert guidance and proven methodologies, we ensure a smooth and successful transformation process.",
             buttonText: "Read More",
             onButtonClick: () => {
               setShowModal(true);
             },
           }}
-          title={data.title}
+          title="2024 Ohio Employee Owner Retreat"
           highlightedTitle=""
           description=""
         />

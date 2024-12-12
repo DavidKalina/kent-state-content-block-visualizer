@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight } from "lucide-react";
 
 interface CalloutGroup {
@@ -9,11 +7,17 @@ interface CalloutGroup {
   label: string;
 }
 
-interface SplitHeroSectionProps {
-  images?: string[];
+export interface SplitHeroSectionProps {
   title?: string;
+  showPrice?: boolean;
   highlightedTitle?: string;
   description?: string;
+  rightSideContent?: {
+    heading: string;
+    text: string;
+    buttonText: string;
+    onButtonClick?: () => void;
+  };
   callout?: {
     groupA: { price: string; label: string };
     groupB: { price: string; label: string };
@@ -56,10 +60,16 @@ const PriceCallout = ({
 );
 
 const SplitHeroSection = ({
-  images = [],
+  showPrice = false,
   title = "Transform Your Workplace",
   highlightedTitle = "Through Innovation",
   description = "One platform to educate, empower, and guide your entire organization through successful employee ownership transition — increasing engagement, retention, and shared success.",
+  rightSideContent = {
+    heading: "Discover More About Our Platform",
+    text: "Our comprehensive solution offers cutting-edge tools and resources designed to streamline your organization's transition to employee ownership. With expert guidance and proven methodologies, we ensure a smooth and successful transformation process.",
+    buttonText: "Read More",
+    onButtonClick: () => {},
+  },
   callout = {
     groupA: { price: "$49.99", label: "Members" },
     groupB: { price: "$69.99", label: "Non Members" },
@@ -69,8 +79,6 @@ const SplitHeroSection = ({
     onButtonClick: () => {},
   },
 }: SplitHeroSectionProps) => {
-  const hasMultipleImages = Array.isArray(images) && images.length > 1;
-
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-50" />
@@ -78,58 +86,32 @@ const SplitHeroSection = ({
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left side - Content */}
-          <div className="flex flex-col space-y-8 justify-between">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-                {title}
-                <span className="block text-blue-600">{highlightedTitle}</span>
-              </h1>
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+              {title}
+              <span className="block text-blue-600">{highlightedTitle}</span>
+            </h1>
 
-              <p className="text-lg text-gray-600">{description}</p>
-            </div>
+            <p className="text-lg text-gray-600">{description}</p>
 
-            <PriceCallout {...callout} />
+            <Button size="lg" className="mt-2 px-8 font-semibold" variant="default">
+              Get Started Now
+            </Button>
+            {showPrice && <PriceCallout {...callout} />}
           </div>
 
-          {/* Right side - Image or Carousel */}
-          <div className="w-full h-full">
-            {hasMultipleImages ? (
-              <Carousel
-                className="w-full"
-                plugins={[
-                  Autoplay({
-                    delay: 2000,
-                  }),
-                ]}
-              >
-                <CarouselContent>
-                  {images.map((image, index) => (
-                    <CarouselItem key={index}>
-                      <Card className="overflow-hidden border-0 shadow-lg">
-                        <div className="aspect-square relative">
-                          <img
-                            src={image || "/api/placeholder/800/800"}
-                            alt={`Slide ${index + 1}`}
-                            className="object-cover w-full h-full rounded-lg"
-                          />
-                        </div>
-                      </Card>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-            ) : (
-              <Card className="overflow-hidden border-0 shadow-lg">
-                <div className="aspect-square relative">
-                  <img
-                    src={Array.isArray(images) ? images[0] : images || "/api/placeholder/800/800"}
-                    alt="Hero"
-                    className="object-cover w-full h-full rounded-lg"
-                  />
-                </div>
-              </Card>
-            )}
-          </div>
+          {/* Right side - Content */}
+          <Card className="p-8 space-y-6 shadow-lg">
+            <h2 className="text-3xl font-bold text-gray-900">{rightSideContent.heading}</h2>
+            <p className="text-lg text-gray-600 line-clamp-2">{rightSideContent.text}</p>
+            <Button
+              className="gap-2 bg-blue-600 hover:bg-blue-700"
+              onClick={rightSideContent.onButtonClick}
+            >
+              {rightSideContent.buttonText}
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+          </Card>
         </div>
       </div>
     </div>
