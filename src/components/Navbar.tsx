@@ -1,7 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+
+  const getLinkClassName = (path: string) => {
+    const baseClasses = "transition-colors text-sm font-medium relative";
+    const isActive = location.pathname === path;
+
+    if (isActive) {
+      return `${baseClasses} text-white after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-0.5 after:bg-white`;
+    }
+    return `${baseClasses} text-gray-300 hover:text-white`;
+  };
+
   return (
     <>
       {/* Spacer div to prevent content from going under fixed navbar */}
@@ -20,12 +33,12 @@ const Navbar = () => {
 
             {/* Navigation Links */}
             <div className="flex items-center gap-8">
-              <a
-                href="/about"
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-              >
+              <Link to="/" className={getLinkClassName("/")}>
+                Home
+              </Link>
+              <Link to="/about" className={getLinkClassName("/about")}>
                 About
-              </a>
+              </Link>
 
               <Button
                 variant="default"

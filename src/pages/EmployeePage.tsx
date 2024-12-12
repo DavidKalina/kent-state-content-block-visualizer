@@ -1,15 +1,15 @@
-import HeroSection from "@/components/HeroSection";
-import LandingCard from "@/components/LandingPageCard";
+import imageOne from "@/assets/conference-image-1.jpg";
+import imageTwo from "@/assets/conference-image-2.jpg";
+import imageThree from "@/assets/conference-image-3.jpg";
+import imageFour from "@/assets/conference-image-4.jpg";
+import imageFive from "@/assets/conference-image-5.jpg";
+import ArticleCard from "@/components/ArticleCard";
 import Navbar from "@/components/Navbar";
-import ScreenMarquee from "@/components/ScreenMarquee";
-import SocialProof from "@/components/SocialProof";
+import SplitHeroSection from "@/components/SplitHeroSection";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-const HomePage = () => {
+const EmployeePage = () => {
   const [viewMode] = useState<"grid" | "list">("grid");
-
-  const navigate = useNavigate();
 
   const generalData = {
     persona: "Employee",
@@ -80,10 +80,14 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 md:p-16">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
       <Navbar />
-      <HeroSection />
-      <ScreenMarquee />
+      <SplitHeroSection
+        images={[imageOne, imageTwo, imageThree, imageFour, imageFive]}
+        title="2024 Ohio Employee Ownership Conference"
+        highlightedTitle=""
+        description="Explore the benefits and implementation strategies of employee ownership models in educational settings. This guide is tailored for educators looking to adopt these innovative approaches to enhance school management and culture."
+      />
       <div className="mx-auto max-w-4xl">
         <div
           className={`
@@ -95,22 +99,21 @@ const HomePage = () => {
           `}
         >
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...generalData} />
+            <ArticleCard {...generalData} />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...ownerData} onClick={() => navigate("/owner")} />
+            <ArticleCard {...ownerData} />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...promoData} />
+            <ArticleCard {...promoData} />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...employeeData} onClick={() => navigate("/employee")} />
+            <ArticleCard {...employeeData} />
           </div>
         </div>
       </div>
-      <SocialProof />
     </div>
   );
 };
 
-export default HomePage;
+export default EmployeePage;

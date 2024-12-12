@@ -1,6 +1,6 @@
 import ContentBlocksPage from "@/pages/ContentBlocks";
 import HomePage from "@/pages/HomePage";
-import JointPage from "@/pages/JointPage";
+import OwnerPage from "@/pages/OwnerPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const AppRouter = () => {
@@ -8,7 +8,8 @@ const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/joint" element={<JointPage />} />
+        <Route path="/owner" element={<OwnerPage />} />
+        <Route path="/employee" element={<OwnerPage />} />
         <Route path="dashboard" element={<ContentBlocksPage />} />
       </Routes>
     </BrowserRouter>

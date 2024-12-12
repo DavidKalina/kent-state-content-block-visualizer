@@ -1,16 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight } from "lucide-react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const PriceCallout = ({ groupA, groupB, buttonText, onButtonClick }: any) => (
+interface CalloutGroup {
+  price: string;
+  label: string;
+}
+
+interface SplitHeroSectionProps {
+  images?: string[];
+  title?: string;
+  highlightedTitle?: string;
+  description?: string;
+  callout?: {
+    groupA: { price: string; label: string };
+    groupB: { price: string; label: string };
+    description: string;
+    buttonText: string;
+    onButtonClick?: () => void;
+  };
+}
+
+const PriceCallout = ({
+  groupA,
+  groupB,
+  buttonText,
+  onButtonClick,
+}: {
+  groupA: CalloutGroup;
+  groupB: CalloutGroup;
+  buttonText: string;
+  onButtonClick?: () => void;
+}) => (
   <div className="space-y-8">
     <div className="grid grid-cols-2 gap-4">
       <div className="space-y-2">
@@ -45,7 +68,7 @@ const SplitHeroSection = ({
     buttonText: "Register",
     onButtonClick: () => {},
   },
-}) => {
+}: SplitHeroSectionProps) => {
   const hasMultipleImages = Array.isArray(images) && images.length > 1;
 
   return (
@@ -71,7 +94,14 @@ const SplitHeroSection = ({
           {/* Right side - Image or Carousel */}
           <div className="w-full h-full">
             {hasMultipleImages ? (
-              <Carousel className="w-full">
+              <Carousel
+                className="w-full"
+                plugins={[
+                  Autoplay({
+                    delay: 2000,
+                  }),
+                ]}
+              >
                 <CarouselContent>
                   {images.map((image, index) => (
                     <CarouselItem key={index}>
@@ -87,8 +117,6 @@ const SplitHeroSection = ({
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
               </Carousel>
             ) : (
               <Card className="overflow-hidden border-0 shadow-lg">

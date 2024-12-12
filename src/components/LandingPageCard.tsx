@@ -9,9 +9,10 @@ interface SimplifiedPersonaCardProps {
   cta_text: string;
   persona: string;
   journey_stage: string;
+  onClick?: () => void;
 }
 
-const LandingPageCard = ({ title, description, cta_text }: SimplifiedPersonaCardProps) => {
+const LandingPageCard = ({ title, description, cta_text, onClick }: SimplifiedPersonaCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -29,7 +30,11 @@ const LandingPageCard = ({ title, description, cta_text }: SimplifiedPersonaCard
       </CardContent>
 
       <CardFooter className="flex-none pt-4">
-        <Button className="w-full group" variant={isHovered ? "default" : "secondary"}>
+        <Button
+          onClick={() => onClick && onClick()}
+          className="w-full group"
+          variant={isHovered ? "default" : "secondary"}
+        >
           <span className="relative z-10 flex items-center justify-center gap-2 transition-transform duration-300 group-hover:translate-x-[-8px]">
             {cta_text}
             <ArrowRight
