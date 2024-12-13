@@ -37,13 +37,18 @@ const Navbar = () => {
                 Home
               </Link>
 
-              <Button
-                variant="default"
-                className="gap-2 bg-[#edab20] hover:bg-blue-500 text-white font-medium px-6"
+              <Link
+                to="https://flashes.givetokent.org/give/441746/#!/donation/checkout?designation=235040"
+                target="_blank"
               >
-                <Heart className="h-4 w-4" />
-                Donate
-              </Button>
+                <Button
+                  variant="default"
+                  className="gap-2 bg-[#edab20] hover:bg-blue-500 text-white font-medium px-6"
+                >
+                  <Heart className="h-4 w-4" />
+                  Donate
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

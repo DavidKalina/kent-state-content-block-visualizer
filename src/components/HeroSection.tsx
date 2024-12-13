@@ -1,12 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { ArrowRight, Briefcase, Building2, LineChart } from "lucide-react";
 import imageOne from "@/assets/conference-image-1.jpg";
 import imageTwo from "@/assets/conference-image-2.jpg";
 import imageThree from "@/assets/conference-image-3.jpg";
 import imageFour from "@/assets/conference-image-4.jpg";
 import imageFive from "@/assets/conference-image-5.jpg";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { Briefcase, Building2, LineChart } from "lucide-react";
 
 const HeroSection = () => {
   // Array of image sources - replace with your actual image imports
@@ -76,15 +75,17 @@ const HeroSection = () => {
             </div>
 
             {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center">
-              <Button size="lg" className="gap-2">
-                Start Your Journey
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+            {/* <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <Link to="/general/1">
+                <Button size="lg" className="gap-2">
+                  Start Your Journey
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
               <Button size="lg" variant="outline">
                 View Success Stories
               </Button>
-            </div>
+            </div> */}
           </div>
 
           {/* Carousel Column */}

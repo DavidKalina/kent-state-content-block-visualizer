@@ -49,7 +49,10 @@ const JointPage = () => {
         <Navbar />
 
         <SplitHeroSection
-          callout={{ buttonText: "Become a Member Today" }}
+          callout={{
+            buttonText: "Become a Member Today",
+            onButtonClick: () => navigate("/network-signup"),
+          }}
           rightSideContent={{
             heading: data.title,
             text: data.optimized_content,

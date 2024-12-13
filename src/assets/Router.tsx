@@ -5,6 +5,7 @@ import EmployeePage from "@/pages/EmployeePage";
 import GeneralArticlePage from "@/pages/GeneralArticlePage";
 import GeneralPage from "@/pages/GeneralPage";
 import HomePage from "@/pages/HomePage";
+import NetworkSignupPage from "@/pages/NetworkSignupPage";
 import OwnerPage from "@/pages/OwnerPage";
 import PromoArticlePage from "@/pages/PromoArticlePage";
 import PromoPage from "@/pages/PromoPage";
@@ -16,6 +17,7 @@ const AppRouter = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/network-signup" element={<NetworkSignupPage />} />
         <Route path="/general" element={<GeneralPage />} />
         <Route path="/general/1" element={<GeneralArticlePage />} />
         <Route path="/employee" element={<EmployeePage />} />

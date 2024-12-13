@@ -95,7 +95,12 @@ const SplitHeroSection = ({
             <p className="text-lg text-gray-600">{description}</p>
 
             {!showPrice && (
-              <Button size="lg" className="mt-2 px-8 font-semibold" variant="default">
+              <Button
+                onClick={callout.onButtonClick}
+                size="lg"
+                className="mt-2 px-8 font-semibold"
+                variant="default"
+              >
                 {callout.buttonText}
               </Button>
             )}
