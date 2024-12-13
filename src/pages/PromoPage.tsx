@@ -54,7 +54,18 @@ const JointPage = () => {
       <div className="min-h-screen bg-gray-50 p-4 md:p-8">
         <Navbar />
         <SplitHeroSection
-          callout={{ buttonText: "Claim Your Spot" }}
+          callout={{
+            buttonText: "Claim Your Spot",
+            groupA: {
+              label: "Members",
+              price: "49.99",
+            },
+            groupB: {
+              label: "Non Members",
+              price: "69.99",
+            },
+          }}
+          showPrice
           rightSideContent={{
             heading: data.title,
             text: data.description,
