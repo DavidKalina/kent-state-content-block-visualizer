@@ -36,9 +36,6 @@ const Navbar = () => {
               <Link to="/" className={getLinkClassName("/")}>
                 Home
               </Link>
-              <Link to="/about" className={getLinkClassName("/about")}>
-                About
-              </Link>
 
               <Button
                 variant="default"
