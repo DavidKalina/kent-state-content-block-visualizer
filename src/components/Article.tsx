@@ -1,8 +1,7 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { BookmarkIcon, ShareIcon, Clock, Calendar, ThumbsUp } from "lucide-react";
+import { BookmarkIcon, Calendar, Clock, ShareIcon, ThumbsUp } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -136,7 +135,7 @@ const Article = ({
         </div>
 
         {/* Related Articles */}
-        <div className="mt-12">
+        {/* <div className="mt-12">
           <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[1, 2].map((i) => (
@@ -156,7 +155,7 @@ const Article = ({
               </Card>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
