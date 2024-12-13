@@ -3,6 +3,8 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { BookmarkIcon, ShareIcon, Clock, Calendar, ThumbsUp } from "lucide-react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 interface ArticleProps {
   title?: string;
@@ -39,6 +41,19 @@ const Article = ({
   The future of employee ownership looks increasingly promising, with new technologies and frameworks making it easier than ever for organizations to implement these structures. As we move forward, we can expect to see continued innovation in this space, with more organizations recognizing the value of shared ownership models.`,
   featuredImage = "/api/placeholder/1200/600",
 }: ArticleProps) => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    // Scroll to top with smooth animation
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+
+    // Alternative without smooth scrolling:
+    // window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}

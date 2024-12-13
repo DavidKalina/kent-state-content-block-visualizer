@@ -1,7 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import LandingCard from "@/components/LandingPageCard";
 import Navbar from "@/components/Navbar";
-import ScreenMarquee from "@/components/ScreenMarquee";
 import SocialProof from "@/components/SocialProof";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -12,78 +11,77 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const generalData = {
-    persona: "Employee",
+    persona: "Employee Member",
     journey_stage: "awareness",
-    title: "Understanding Employee Ownership: A Guide for Ohio Workers",
+    title: "Employee Ownership: Your Guide to Building Wealth Through Workplace Ownership",
     description:
-      "Discover the essentials of employee ownership and how it can benefit you and your workplace. This guide is designed to introduce Ohio employees to the concept of employee ownership, its advantages, and resources available for further exploration.",
+      "Discover how employee ownership can transform your career and financial future. Learn about proven benefits like better pay, stronger job security, and real opportunities to build lasting wealth.",
     optimized_content:
-      "Employee ownership is a powerful concept that can transform workplaces and enhance job satisfaction. As an employee in Ohio, understanding this model can open up new opportunities for personal and professional growth.\n\n### What is Employee Ownership?\nEmployee ownership is a business model where employees hold a significant stake in the company they work for. This can take various forms, including Employee Stock Ownership Plans (ESOPs) and worker cooperatives.\n\n### Benefits of Employee Ownership\n1. **Increased Job Satisfaction:** Employees often experience a greater sense of responsibility and satisfaction due to their stake in the company.\n2. **Financial Rewards:** Employee ownership can lead to financial benefits through profit sharing and increased value of shares.\n3. **Enhanced Company Performance:** Companies with employee ownership often see improved performance and productivity.\n\n### Getting Started\nIf you're interested in exploring employee ownership, numerous resources are available:\n- **Ohio Employee Ownership Center (OEOC):** Offers programs and events to help employees and businesses transition to this model.\n- **Workshops and Training:** Attend sessions to learn more about the practical aspects of employee ownership.\n- **Networking Opportunities:** Connect with other employee-owned businesses and professionals in Ohio.\n\n### Upcoming Events\nStay informed about events like the Annual Ohio Employee Ownership Conference, where you can learn from experts and network with peers.",
-    cta_text: "Discover More",
-    relevance_score: 0.8,
-    technical_level: 3,
+      "Employee ownership is transforming workplaces across America, creating stronger companies and more prosperous employees. Over 14 million Americans already benefit from employee ownership – here's why it matters for your future.\n\nAt its core, employee ownership means having a real stake in your company's success. Research consistently shows that employee-owned companies outperform their competitors, offering significant advantages:\n\n- Higher wages and better benefits than traditional companies\n- Increased job security and satisfaction\n- Opportunities to build substantial retirement wealth\n- Stronger company performance during economic challenges\n\nThere are several ways to become an employee-owner. The most common is through an Employee Stock Ownership Plan (ESOP), which works like a retirement benefit but invests in your company's stock. You don't have to pay anything to participate – your company contributes stock to a trust for your benefit.\n\nWorker cooperatives offer another path, where employees directly own and help run the business. A newer option, Employee Ownership Trusts (EOTs), focuses on profit-sharing and long-term employee benefit.\n\nThe impact is real: Employee-owned companies create more resilient local economies, preserve jobs, and help employees build significant wealth over time. When employees have an ownership stake, everyone benefits from the company's success.",
+    cta_text: "Schedule a Free Consultation to Learn More",
+    relevance_score: 0.9,
+    technical_level: 1,
     transformation_rationale:
-      'The content is optimized for the "awareness" stage of the employee persona by introducing the concept of employee ownership in an engaging and straightforward manner. The focus is on explaining the fundamentals and benefits, encouraging further exploration through available resources and events. The technical level is kept low to ensure accessibility for all employees, regardless of their prior knowledge of employee ownership. The optimization makes use of structured guides and provides suggestions for further learning, aligning with the persona\'s stage of interest in understanding employee ownership.',
-    diversity_score: 0.0852459016393429,
-    total_persona_stage_content: 122,
+      "Content has been structured to address common questions and concerns of those new to employee ownership, emphasizing personal benefits while keeping technical details minimal. The progressive disclosure model allows readers to grasp key concepts before diving deeper into specific ownership structures. Language is accessible and encouraging, focusing on real-world benefits and outcomes.",
+    diversity_score: 0.0128,
+    total_persona_stage_content: 108,
   };
 
   const promoData = {
-    persona: "Business Owner",
-    journey_stage: "consideration",
-    title: "2024 Ohio Employee Ownership Conference",
+    persona: "Employee Member",
+    journey_stage: "awareness",
+    title: "Join Us at the 39th Annual Ohio Employee Ownership Conference",
     description:
-      "Explore the benefits and intricacies of employee ownership. Discover how the 2024 Ohio Employee Ownership Conference can empower business owners to make informed decisions about transitioning to an employee-owned model.",
+      "Connect with fellow employee-owners and industry experts at Ohio's premier employee ownership event. Experience a day of learning, networking, and celebration at the Akron-Fairlawn Hilton on April 10th, 2025.",
     optimized_content:
-      "As a business owner contemplating the future of your business, understanding the potential of employee ownership can be pivotal. The 2024 Ohio Employee Ownership Conference offers a comprehensive platform to explore this transformative approach. Hosted by the Ohio Employee Ownership Center (OEOC) at Kent State University, this event is designed to provide business owners with the tools, insights, and support needed to consider an employee-owned structure.\n\n### Why Consider Employee Ownership?\n\nEmployee ownership is not just a trend; it’s a strategic move that can enhance company culture, improve employee engagement, and potentially increase business resilience and profitability. Through employee ownership, businesses can create a sense of shared purpose and motivation among their workforce, driving both individual and organizational success.\n\n### What to Expect at the Conference\n\n- **Case Studies:** Gain access to real-life examples and success stories of businesses that have transitioned to employee ownership. Learn about the financial and operational impacts experienced by these companies and how they navigated the transition.\n  \n- **Expert Insights:** Hear from industry leaders and experts in employee ownership. These sessions will provide you with credible insights and address complex concerns, helping you to make informed decisions about the future of your business.\n\n- **Networking Opportunities:** Connect with other business owners, industry professionals, and potential partners. These interactions can provide valuable perspectives and foster collaborative opportunities.\n\n- **Workshops and Seminars:** Participate in hands-on workshops that offer practical guidance on the transition process, including feasibility studies, funding options, and legal considerations.\n\n- **Advisory Services:** Take advantage of one-on-one advisory sessions where you can discuss your specific business needs and get tailored advice from experts in the field.\n\n### Supporting Resources\n\nIn addition to the conference, the OEOC provides ongoing support through various resources such as webinars, training sessions, and publications. Whether you're just starting to explore employee ownership or are ready to initiate the transition, these resources are designed to support you every step of the way.",
-    cta_text: "Explore the Conference Program",
-    relevance_score: 0.9,
-    technical_level: 3,
+      "Mark your calendars for the biggest employee ownership event of the year! The 39th Annual Ohio Employee Ownership Conference brings together the entire employee ownership community for a power-packed day of learning and connection.\n\nThis year's conference features over 20 specialized breakout sessions covering essential topics for everyone in the employee ownership community. From technical insights to culture-building strategies, you'll find sessions that speak directly to your interests and needs.\n\nKey Focus Areas:\n- Legal and Technical Updates: Stay current with the latest in employee ownership law and finance\n- Governance and Leadership: Learn best practices for managing employee-owned companies\n- Culture and Communications: Discover strategies to build and maintain a strong ownership culture\n- Essential Education: Engage with interactive sessions perfect for both new and experienced employee-owners\n- Business Owner Insights: Explore pathways to employee ownership transition\n\nPre-conference activities begin Wednesday, April 9th, with the main conference following on Thursday, April 10th, 2025. Join us at the Akron-Fairlawn Hilton for this can't-miss opportunity to connect with peers, celebrate successes, and strengthen your employee ownership journey.",
+    cta_text: "Register Now for Early Bird Pricing",
+    relevance_score: 0.85,
+    technical_level: 1,
     transformation_rationale:
-      "The content has been optimized to align with the consideration stage of the business owner's journey. At this stage, business owners are evaluating their options and seeking detailed information to guide their decision-making process. By including case studies and expert insights, the content addresses the need for concrete examples and credible advice, which are critical for understanding the implications of employee ownership. The use of workshops and advisory services in the content provides actionable steps, making it practical and relevant. The technical level is set at 3 to ensure accessibility while offering sufficient depth for informed decision-making.",
-    diversity_score: 0.0114754098360643,
-    total_persona_stage_content: 122,
+      "While maintaining broad appeal, the content emphasizes the event's value for all attendees while keeping technical details accessible. The structure moves from immediate appeal (date and location) to specific benefits (session topics) to create urgency and interest. The progressive disclosure model allows for quick scanning of key details with deeper information available on demand.",
+    diversity_score: 0.0135,
+    total_persona_stage_content: 98,
   };
 
   const employeeData = {
-    persona: "Employee",
-    journey_stage: "awareness",
-    title: "Introduction to Employee Ownership: Exploring the Benefits and Opportunities",
+    persona: "Employee Member",
+    journey_stage: "consideration",
+    title: "Understanding Your Path to Ownership: A Guide to Employee Ownership Models",
     description:
-      "Discover the basics of employee ownership and how it can transform your workplace. Learn about the benefits, success stories, and the potential impact on your career and company culture.",
+      "Discover how employee ownership can benefit you and your colleagues. Learn about different ownership structures and how they can create opportunities for wealth building and workplace participation.",
     optimized_content:
-      "Employee ownership is a powerful concept that can reshape the dynamics of a workplace. At its core, employee ownership involves employees acquiring an ownership stake in the company they work for. This model not only aligns the interests of employees and employers but also fosters a culture of shared responsibility and motivation.\n\nImagine working in an environment where your contributions directly impact your share of the company's success. This is the reality for many employee-owned businesses. Studies have shown that such companies often experience higher productivity, improved job satisfaction, and greater resilience in economic downturns.\n\nA compelling example of this is Hamill Manufacturing, a company that transitioned from family-owned to employee-owned. Jeff Kelly, the former CEO, chose to sell the company to its employees, valuing legacy and loyalty. This shift not only preserved the company's ethos but also empowered employees to take ownership of their work and future.\n\nUnderstanding the fundamentals of employee ownership can open up new possibilities for your career and your organization. Whether you're an employee, a business owner, or someone interested in innovative business models, exploring employee ownership might be the key to unlocking untapped potential.",
-    cta_text: "Explore Employee Ownership",
-    relevance_score: 0.9,
-    technical_level: 3,
+      "As an employee, you have exciting opportunities to become an owner in your workplace through various employee ownership models. Each model offers unique benefits and ways to build long-term wealth while contributing to your company's success.\n\nThe most common path to employee ownership is through an Employee Stock Ownership Plan (ESOP). Think of an ESOP as a special retirement benefit where instead of just contributing your own money like in a 401(k), your company contributes its stock to a trust for your benefit. You don't have to pay anything to participate, and you can build significant wealth over time as your company grows.\n\nWorker cooperatives offer a different approach, where you can become a direct owner-member of your company. While less common in the US, cooperatives provide opportunities for direct participation in company decisions and annual profit sharing through what's called patronage dividends.\n\nA newer option gaining attention is the Employee Ownership Trust (EOT). While you don't own shares directly in an EOT, you benefit from profit sharing and have assurance that the company will continue to operate for employees' benefit.\n\nEach model has its own advantages, from tax benefits to wealth-building opportunities. The key is understanding how these structures can work for you and your colleagues.",
+    cta_text: "Learn More About Employee Ownership Options",
+    relevance_score: 0.95,
+    technical_level: 2,
     transformation_rationale:
-      "The content has been optimized for employees at the awareness stage of their journey. The title and description are crafted to pique curiosity and provide a clear overview of what employee ownership entails. The content is structured to be informative yet engaging, using relatable examples like Hamill Manufacturing to illustrate the concept's impact. The language is kept simple to ensure accessibility, given the technical level of 2, suitable for individuals with little to no prior knowledge of employee ownership. The call-to-action encourages further exploration, aligning with the goal of increasing awareness.",
-    diversity_score: 0.185245901639343,
-    total_persona_stage_content: 122,
+      "The content has been transformed to address the Employee Member persona by focusing on personal benefits and opportunities rather than technical implementation details. The language is accessible but informative, emphasizing the practical aspects of ownership that matter most to employees: wealth building, participation, and long-term benefits. The content progression allows for initial understanding while hinting at deeper information available in full view.",
+    diversity_score: 0.0125,
+    total_persona_stage_content: 115,
   };
 
   const ownerData = {
-    persona: "Business Owner",
+    persona: "Employee Owner",
     journey_stage: "consideration",
-    title: "Unlocking the Power of Employee Ownership: A Guide for Business Owners",
+    title: "Understanding Your Company's Transition to Employee Ownership",
     description:
-      "Explore how the Ohio Employee Ownership Center (OEOC) can help transform your business through innovative training programs designed to enhance employee engagement and drive business performance.",
+      "Learn about the pathways to employee ownership and what they mean for your company's future. Discover how ESOPs and worker cooperatives can preserve jobs while creating sustainable business transitions.",
     optimized_content:
-      "In today's competitive business environment, employee ownership can be a game-changer. As a business owner, understanding the potential of this model is crucial during the consideration stage. The Ohio Employee Ownership Center (OEOC) is your partner in this journey, offering tailored training programs that cater to the unique needs of your company. \n\nSince 1987, OEOC has been at the forefront of fostering an ownership culture, providing both in-company and multi-company training that delves into the intricacies of employee ownership. Our programs are designed to integrate seamlessly with your existing structures, ensuring that your employees understand their roles, rights, and responsibilities as owners. \n\nConsider the transformative power of our ESOP training programs, where employees learn through interactive experiences such as the ESOP Game, which simulates the management of a fictional company. This hands-on approach not only educates but also empowers employees to make informed decisions that benefit the company and themselves.\n\nFinancial literacy is another cornerstone of our offerings. Our financial training equips employee-owners with the knowledge to interpret financial statements, enhancing their ability to contribute to company success.\n\nBy joining Ohio's Employee-Owned Network, you gain access to exclusive events, webinars, and a wealth of resources that keep you connected with industry experts and other employee-owned businesses. These opportunities offer invaluable insights into best practices and innovative strategies for fostering an engaged and productive workforce.\n\nWhether you're exploring employee ownership for the first time or looking to enhance your current model, the OEOC provides the expertise and support you need to succeed.",
-    cta_text: "Discover OEOC Programs",
-    relevance_score: 0.8,
+      "As an employee owner, understanding the transition process to employee ownership helps you make informed decisions about your company's future. There are two primary paths to employee ownership, each with distinct advantages for different business situations.\n\nThe Employee Stock Ownership Plan (ESOP) is the most widely used method, particularly well-suited for:\n- Companies with 20+ employees\n- Capital-intensive businesses\n- Situations where partial ownership transfer is desired\n- Organizations seeking significant tax advantages\n\nESOPs function as qualified retirement plans but differ in crucial ways: they invest primarily in company stock and can borrow money to finance ownership transitions. This structure provides flexibility in succession planning and can work alongside other ownership strategies.\n\nWorker cooperatives offer an alternative approach, ideal for:\n- Smaller companies\n- Businesses planning complete ownership transfer\n- Organizations seeking lower implementation costs\n- Companies valuing direct employee participation\n\nBoth models preserve jobs and maintain company independence while offering tax benefits. For sellers, the '1042 Rollover' provision can shelter capital gains when selling 30% or more of the company to either an ESOP or cooperative.\n\nThe choice between these models often depends on company size, financial structure, and desired level of employee participation. Understanding these options helps you engage more effectively in your company's ownership journey.",
+    cta_text: "Schedule a Consultation to Learn More",
+    relevance_score: 0.95,
     technical_level: 3,
     transformation_rationale:
-      "The content has been optimized to address the needs of a business owner in the consideration stage by highlighting the benefits and practical applications of employee ownership. The original text was dense and unfocused, so I streamlined it to focus on key offerings and benefits relevant to business owners considering employee ownership. The inclusion of specific programs like the ESOP Game and financial literacy training provides concrete examples of how OEOC can add value. The technical level is set to 3, assuming a moderate understanding of business and financial concepts. The call-to-action is clear and encourages further exploration of OEOC's services.",
-    diversity_score: 0.0885245901639357,
-    total_persona_stage_content: 122,
+      "Content has been structured to address employee owners' need for deeper understanding of ownership transition options. The technical level is higher than introductory content, reflecting the audience's existing familiarity with employee ownership concepts. The progressive disclosure model allows readers to grasp key differences between ownership models before exploring specific details.",
+    diversity_score: 0.0132,
+    total_persona_stage_content: 116,
   };
 
   return (
     <div className="min-h-screen bg-gray-50 p-8 md:p-16">
       <Navbar />
       <HeroSection />
-      <ScreenMarquee />
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-8">Featured</h2>
 
@@ -97,10 +95,14 @@ const HomePage = () => {
           `}
         >
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...generalData} />
+            <LandingCard
+              {...generalData}
+              onClick={() => navigate("/general/1")}
+              cta_text="Read More"
+            />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...ownerData} />
+            <LandingCard {...ownerData} onClick={() => navigate("/owner")} />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
             <LandingCard {...promoData} onClick={() => navigate("/promo")} />

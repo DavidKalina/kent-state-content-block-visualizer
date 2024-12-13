@@ -103,7 +103,7 @@ const SplitHeroSection = ({
           {/* Right side - Content */}
           <Card className="p-8 space-y-6 shadow-lg">
             <h2 className="text-3xl font-bold text-gray-900">{rightSideContent.heading}</h2>
-            <p className="text-lg text-gray-600 line-clamp-2">{rightSideContent.text}</p>
+            <p className="text-lg text-gray-600 line-clamp-4">{rightSideContent.text}</p>
             <Button
               className="gap-2 bg-blue-600 hover:bg-blue-700"
               onClick={rightSideContent.onButtonClick}
