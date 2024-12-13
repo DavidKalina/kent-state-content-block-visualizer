@@ -1,6 +1,5 @@
 import HeroSection from "@/components/HeroSection";
 import LandingCard from "@/components/LandingPageCard";
-import Navbar from "@/components/Navbar";
 import SocialProof from "@/components/SocialProof";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -80,7 +79,6 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-8 md:p-16">
-      <Navbar />
       <HeroSection />
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-8">Featured</h2>

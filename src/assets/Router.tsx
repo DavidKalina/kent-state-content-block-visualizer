@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import ContentBlocksPage from "@/pages/ContentBlocks";
 import EmployeeArticlePage from "@/pages/EmployeeArticlePage";
 import EmployeePage from "@/pages/EmployeePage";
@@ -11,6 +12,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 const AppRouter = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/general" element={<GeneralPage />} />

@@ -19,10 +19,10 @@ export interface SplitHeroSectionProps {
     onButtonClick?: () => void;
   };
   callout?: {
-    groupA: { price: string; label: string };
-    groupB: { price: string; label: string };
-    description: string;
-    buttonText: string;
+    groupA?: { price: string; label: string };
+    groupB?: { price: string; label: string };
+    description?: string;
+    buttonText?: string;
     onButtonClick?: () => void;
   };
 }
@@ -95,9 +95,15 @@ const SplitHeroSection = ({
             <p className="text-lg text-gray-600">{description}</p>
 
             <Button size="lg" className="mt-2 px-8 font-semibold" variant="default">
-              Get Started Now
+              {callout.buttonText}
             </Button>
-            {showPrice && <PriceCallout {...callout} />}
+            {showPrice && (
+              <PriceCallout
+                groupA={callout.groupA!}
+                groupB={callout.groupB!}
+                buttonText={callout.buttonText!}
+              />
+            )}
           </div>
 
           {/* Right side - Content */}
