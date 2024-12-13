@@ -74,9 +74,9 @@ const JointPage = () => {
               setShowModal(true);
             },
           }}
-          title={data.title}
+          title="Unlock Your Leadership Potential"
           highlightedTitle=""
-          description=""
+          description="Join the premier employee ownership event at exclusive early bird rates!"
         />
       </div>
     </>

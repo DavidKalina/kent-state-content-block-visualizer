@@ -6,21 +6,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const JointPage = () => {
   const { pathname } = useLocation();
-
   const navigate = useNavigate();
-
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    // Scroll to top with smooth animation
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "instant",
     });
-
-    // Alternative without smooth scrolling:
-    // window.scrollTo(0, 0);
   }, [pathname]);
 
   const data = {
@@ -64,9 +58,9 @@ const JointPage = () => {
               setShowModal(true);
             },
           }}
-          title={data.title}
-          highlightedTitle=""
-          description=""
+          title="Own Your Future"
+          highlightedTitle="Transform Your Workplace"
+          description="Join thousands of employee owners who've taken control of their financial destiny. Learn how employee ownership can secure your future while building lasting company value."
         />
       </div>
     </>

@@ -1,8 +1,17 @@
-import heroImage from "@/assets/conference-image-3.jpg";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { ArrowRight, Briefcase, Building2, LineChart } from "lucide-react";
+import imageOne from "@/assets/conference-image-1.jpg";
+import imageTwo from "@/assets/conference-image-2.jpg";
+import imageThree from "@/assets/conference-image-3.jpg";
+import imageFour from "@/assets/conference-image-4.jpg";
+import imageFive from "@/assets/conference-image-5.jpg";
+import Autoplay from "embla-carousel-autoplay";
 
 const HeroSection = () => {
+  // Array of image sources - replace with your actual image imports
+  const images = [imageOne, imageTwo, imageThree, imageFour, imageFive];
+
   return (
     <div className="relative overflow-hidden bg-white">
       {/* Background decoration */}
@@ -12,8 +21,6 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content Column */}
           <div className="space-y-8">
-            {/* Badge */}
-
             {/* Unified benefit statement */}
             <div className="space-y-6">
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900">
@@ -36,10 +43,10 @@ const HeroSection = () => {
                     <Briefcase className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900">Saves & Creates New Jobs</h3>
-                  <p className="text-sm text-gray-600">
+                  {/* <p className="text-sm text-gray-600">
                     Strengthen job security and create new opportunities for growth within the
                     organization.
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
@@ -49,9 +56,9 @@ const HeroSection = () => {
                     <LineChart className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900">Increase Worker Engagement</h3>
-                  <p className="text-sm text-gray-600">
+                  {/* <p className="text-sm text-gray-600">
                     Boost productivity and satisfaction through meaningful employee participation.
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
@@ -61,9 +68,9 @@ const HeroSection = () => {
                     <Building2 className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900">Regional Economic Impact</h3>
-                  <p className="text-sm text-gray-600">
+                  {/* <p className="text-sm text-gray-600">
                     Drive local economic development through sustainable business practices.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -80,15 +87,31 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Image Column */}
-          <div className="relative h-full min-h-[400px] lg:min-h-[600px] rounded-xl overflow-hidden">
-            <img
-              src={heroImage}
-              alt="Employee ownership illustration"
-              className="absolute inset-0 w-full h-full object-cover rounded-xl"
-            />
-            {/* Optional overlay for better text contrast */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent mix-blend-overlay" />
+          {/* Carousel Column */}
+          <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
+            <Carousel
+              className="w-full h-full"
+              plugins={[
+                Autoplay({
+                  delay: 2000,
+                }),
+              ]}
+            >
+              <CarouselContent>
+                {images.map((src, index) => (
+                  <CarouselItem key={index}>
+                    <div className="relative h-[400px] lg:h-[600px] rounded-xl overflow-hidden">
+                      <img
+                        src={src}
+                        alt={`Employee ownership slide ${index + 1}`}
+                        className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent mix-blend-overlay" />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </div>

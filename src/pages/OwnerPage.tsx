@@ -4,7 +4,7 @@ import SplitHeroSection from "@/components/SplitHeroSection";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const JointPage = () => {
+const OwnerPage = () => {
   const { pathname } = useLocation();
 
   const navigate = useNavigate();
@@ -63,13 +63,17 @@ const JointPage = () => {
               setShowModal(true);
             },
           }}
-          title={data.title}
-          highlightedTitle=""
-          description=""
+          title="Build Lasting Value Together"
+          highlightedTitle="Your Voice Matters"
+          description="Take an active role in shaping your company's future through our specialized training programs and employee-owner network. Join fellow owners in building stronger businesses through shared knowledge and proven strategies."
+          callout={{
+            description: "asd",
+            buttonText: "Join Our Network",
+          }}
         />
       </div>
     </>
   );
 };
 
-export default JointPage;
+export default OwnerPage;
