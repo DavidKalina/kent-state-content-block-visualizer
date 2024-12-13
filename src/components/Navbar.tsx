@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
-
-  const navigate = useNavigate();
 
   const getLinkClassName = (path: string) => {
     const baseClasses = "transition-colors text-sm font-medium relative";
