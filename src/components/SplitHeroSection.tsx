@@ -106,6 +106,7 @@ const SplitHeroSection = ({
             )}
             {showPrice && (
               <PriceCallout
+                onButtonClick={callout.onButtonClick}
                 groupA={callout.groupA!}
                 groupB={callout.groupB!}
                 buttonText={callout.buttonText!}

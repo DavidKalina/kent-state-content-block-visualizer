@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import ConferenceRegistration from "@/pages/ConferenceRegistrationPage";
 import ContentBlocksPage from "@/pages/ContentBlocks";
 import EmployeeArticlePage from "@/pages/EmployeeArticlePage";
 import EmployeePage from "@/pages/EmployeePage";
@@ -9,6 +10,7 @@ import NetworkSignupPage from "@/pages/NetworkSignupPage";
 import OwnerPage from "@/pages/OwnerPage";
 import PromoArticlePage from "@/pages/PromoArticlePage";
 import PromoPage from "@/pages/PromoPage";
+import WebinarsPage from "@/pages/WebinarsPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const AppRouter = () => {
@@ -17,6 +19,8 @@ const AppRouter = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/conference-registration" element={<ConferenceRegistration />} />
+        <Route path="/webinars-page" element={<WebinarsPage />} />
         <Route path="/network-signup" element={<NetworkSignupPage />} />
         <Route path="/general" element={<GeneralPage />} />
         <Route path="/general/1" element={<GeneralArticlePage />} />

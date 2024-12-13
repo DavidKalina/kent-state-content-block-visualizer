@@ -64,6 +64,8 @@ const JointPage = () => {
               label: "Non Members",
               price: "69.99",
             },
+
+            onButtonClick: () => navigate("/conference-registration"),
           }}
           showPrice
           rightSideContent={{

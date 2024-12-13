@@ -69,6 +69,7 @@ const OwnerPage = () => {
           callout={{
             description: "asd",
             buttonText: "Join Our Network",
+            onButtonClick: () => navigate("/webinars-page"),
           }}
         />
       </div>
