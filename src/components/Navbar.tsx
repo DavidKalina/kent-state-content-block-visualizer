@@ -1,9 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import UserMenu from "./UserMenu";
+import AuthModal from "./AuthModal";
+import { useState } from "react";
 
 const Navbar = () => {
   const location = useLocation();
+
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   const getLinkClassName = (path: string) => {
     const baseClasses = "transition-colors text-sm font-medium relative";
@@ -50,6 +55,17 @@ const Navbar = () => {
                 </Button>
               </Link>
             </div>
+            <UserMenu onClickSignIn={() => setShowAuthModal(true)} />
+            <AuthModal
+              headerText="Sign In"
+              isOpen={showAuthModal}
+              onSuccess={() => {
+                setShowAuthModal(false);
+              }}
+              onClose={() => {
+                setShowAuthModal(false);
+              }}
+            />
           </div>
         </div>
       </nav>

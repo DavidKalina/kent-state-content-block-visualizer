@@ -17,9 +17,17 @@ interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccess: () => void;
+  headerText?: string;
+  text?: string;
 }
 
-const AuthModal = ({ isOpen, onClose, onSuccess }: AuthModalProps) => {
+const AuthModal = ({
+  isOpen,
+  onClose,
+  onSuccess,
+  headerText = "Member Access Required",
+  text = "Please sign in to access exclusive member content.",
+}: AuthModalProps) => {
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +38,7 @@ const AuthModal = ({ isOpen, onClose, onSuccess }: AuthModalProps) => {
     setIsLoading(true);
 
     try {
-      await login(email, password);
+      await login(email);
       onSuccess();
     } catch (error) {
       // Handle error
@@ -44,8 +52,8 @@ const AuthModal = ({ isOpen, onClose, onSuccess }: AuthModalProps) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Member Access Required</DialogTitle>
-          <DialogDescription>Please sign in to access exclusive member content.</DialogDescription>
+          <DialogTitle>{headerText}</DialogTitle>
+          <DialogDescription>{text}</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">

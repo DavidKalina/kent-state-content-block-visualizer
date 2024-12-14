@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ConferenceRegistration from "@/pages/ConferenceRegistrationPage";
 import ContentBlocksPage from "@/pages/ContentBlocks";
@@ -32,6 +33,7 @@ const AppRouter = () => {
         <Route path="/promo/1" element={<PromoArticlePage />} />
         <Route path="dashboard" element={<ContentBlocksPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

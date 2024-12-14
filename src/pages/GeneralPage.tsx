@@ -1,5 +1,4 @@
 import AuthModal from "@/components/AuthModal";
-import Navbar from "@/components/Navbar";
 import SplitHeroSection from "@/components/SplitHeroSection";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -52,8 +51,6 @@ const GeneralPage = () => {
         }}
       />
       <div className="min-h-screen bg-gray-50 p-4 md:p-8">
-        <Navbar />
-
         <SplitHeroSection
           rightSideContent={{
             heading: data.title,
