@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
@@ -10,14 +11,21 @@ interface SimplifiedPersonaCardProps {
   persona: string;
   journey_stage: string;
   onClick?: () => void;
+  clamp?: number;
 }
 
-const LandingPageCard = ({ title, description, cta_text, onClick }: SimplifiedPersonaCardProps) => {
+const LandingPageCard = ({
+  title,
+  description,
+  cta_text,
+  onClick,
+  clamp = 2,
+}: SimplifiedPersonaCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Card
-      className="flex flex-col h-[300px] transition-all duration-300 hover:shadow-lg relative overflow-hidden"
+      className="flex flex-col min-h-[300px] transition-all duration-300 hover:shadow-lg relative overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -26,7 +34,18 @@ const LandingPageCard = ({ title, description, cta_text, onClick }: SimplifiedPe
       </CardHeader>
 
       <CardContent className="flex-grow">
-        <p className="text-gray-600 line-clamp-3">{description}</p>
+        <p
+          className={cn(`text-gray-600`, {
+            "line-clamp-1": clamp === 1,
+            "line-clamp-2": clamp === 2,
+            "line-clamp-3": clamp === 3,
+            "line-clamp-4": clamp === 4,
+            "line-clamp-5": clamp === 5,
+            "line-clamp-6": clamp === 6,
+          })}
+        >
+          {description}
+        </p>
       </CardContent>
 
       <CardFooter className="flex-none pt-4">

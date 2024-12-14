@@ -100,7 +100,11 @@ const HomePage = () => {
             />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...ownerData} onClick={() => navigate("/owner")} />
+            <LandingCard
+              {...ownerData}
+              description={ownerData.optimized_content}
+              onClick={() => navigate("/owner")}
+            />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
             <LandingCard {...promoData} onClick={() => navigate("/promo")} />
