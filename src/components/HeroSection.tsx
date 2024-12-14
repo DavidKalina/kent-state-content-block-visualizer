@@ -42,10 +42,6 @@ const HeroSection = () => {
                     <Briefcase className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900">Saves & Creates New Jobs</h3>
-                  {/* <p className="text-sm text-gray-600">
-                    Strengthen job security and create new opportunities for growth within the
-                    organization.
-                  </p> */}
                 </div>
               </div>
 
@@ -55,9 +51,6 @@ const HeroSection = () => {
                     <LineChart className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900">Increase Worker Engagement</h3>
-                  {/* <p className="text-sm text-gray-600">
-                    Boost productivity and satisfaction through meaningful employee participation.
-                  </p> */}
                 </div>
               </div>
 
@@ -67,25 +60,9 @@ const HeroSection = () => {
                     <Building2 className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900">Regional Economic Impact</h3>
-                  {/* <p className="text-sm text-gray-600">
-                    Drive local economic development through sustainable business practices.
-                  </p> */}
                 </div>
               </div>
             </div>
-
-            {/* CTA buttons */}
-            {/* <div className="flex flex-col sm:flex-row gap-4 items-center">
-              <Link to="/general/1">
-                <Button size="lg" className="gap-2">
-                  Start Your Journey
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-              <Button size="lg" variant="outline">
-                View Success Stories
-              </Button>
-            </div> */}
           </div>
 
           {/* Carousel Column */}

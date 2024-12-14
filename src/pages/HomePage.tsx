@@ -103,14 +103,19 @@ const HomePage = () => {
             <LandingCard
               {...ownerData}
               description={ownerData.optimized_content}
+              cta_text="Read More"
               onClick={() => navigate("/owner")}
             />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...promoData} onClick={() => navigate("/promo")} />
+            <LandingCard {...promoData} onClick={() => navigate("/promo")} cta_text="Read More" />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...employeeData} onClick={() => navigate("/employee")} />
+            <LandingCard
+              {...employeeData}
+              cta_text="Read More"
+              onClick={() => navigate("/employee")}
+            />
           </div>
         </div>
       </div>
