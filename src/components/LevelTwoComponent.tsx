@@ -2,12 +2,11 @@
 import { useAuth } from "@/hooks/useAuth";
 import useScrollToTop from "@/hooks/useScrollToTop";
 import { useMemo, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthModal from "./AuthModal";
 import LandingPageCard from "./LandingPageCard";
 import MeetingHero from "./MeetingHero";
 import TopicRecommendations from "./TopicRecommendations";
-import { useNavigate } from "react-router-dom";
 
 interface PricingTier {
   type: "member" | "non-member";
@@ -58,10 +57,9 @@ const LevelTwoComponent = ({
   persona,
 }: LevelTwoComponentProps) => {
   const { isAuthenticated } = useAuth();
-  // const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
-
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+  const [pendingRedirect, setPendingRedirect] = useState<string | null>(null);
 
   const orderedTopicData = useMemo(
     () =>
@@ -83,6 +81,17 @@ const LevelTwoComponent = ({
 
   useScrollToTop();
 
+  const handleArticleClick = (content: ContentData) => {
+    const targetUrl = `/article/${content.title}?title=${content.title}&description=${content.optimized_content}`;
+
+    if (!isAuthenticated) {
+      setPendingRedirect(targetUrl);
+      setShowModal(true);
+    } else {
+      navigate(targetUrl);
+    }
+  };
+
   return (
     <>
       <div className="min-h-screen bg-gray-50 p-8 md:p-16">
@@ -101,15 +110,7 @@ const LevelTwoComponent = ({
             <div className="flex-1">
               <LandingPageCard
                 {...mainContent}
-                onClick={() => {
-                  if (!isAuthenticated) {
-                    setShowModal(true);
-                  } else {
-                    navigate(
-                      `/article/${mainContent.title}?title=${mainContent.title}&description=${mainContent.optimized_content}`
-                    );
-                  }
-                }}
+                onClick={() => handleArticleClick(mainContent)}
                 clamp={6}
                 description={mainContent.optimized_content}
                 cta_text="Read More"
@@ -133,15 +134,7 @@ const LevelTwoComponent = ({
                 description={secondaryData.optimized_content}
                 cta_text="Read More"
                 clamp={5}
-                onClick={() => {
-                  if (!isAuthenticated) {
-                    setShowModal(true);
-                  } else {
-                    navigate(
-                      `/article/${secondaryData.title}?title=${secondaryData.title}&description=${secondaryData.optimized_content}`
-                    );
-                  }
-                }}
+                onClick={() => handleArticleClick(secondaryData)}
               />
             </div>
           </div>
@@ -151,9 +144,14 @@ const LevelTwoComponent = ({
         isOpen={showModal}
         onClose={() => {
           setShowModal(false);
+          setPendingRedirect(null);
         }}
         onSuccess={() => {
           setShowModal(false);
+          if (pendingRedirect) {
+            navigate(pendingRedirect);
+            setPendingRedirect(null);
+          }
         }}
       />
     </>
