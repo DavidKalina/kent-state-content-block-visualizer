@@ -26,9 +26,6 @@ const TopicRecommendations = ({ data, persona }: TopicRecommendationsProps) => {
             <CardHeader className="space-y-2">
               <div className="flex items-start justify-between gap-4">
                 <CardTitle className="text-xl">{item.title}</CardTitle>
-                <Badge variant="outline" className="whitespace-nowrap">
-                  Score: {(item.relevance_score * 100).toFixed(0)}%
-                </Badge>
               </div>
               <p className="text-sm text-gray-600">{item.description}</p>
             </CardHeader>

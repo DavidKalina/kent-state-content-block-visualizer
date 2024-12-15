@@ -52,12 +52,22 @@ const LevelTwoLayout = () => {
           <div className="flex">
             <div className="flex-1">
               <MeetingHero
-                headline="Build Lasting Value Together!"
                 images={[imageOne, imageTwo, imageThree, imageFour, imageFive]}
-                description={
-                  "Take an active role in shaping your company's future through our specialized training programs and employee-owner network. Join fellow owners in building stronger businesses through shared knowledge and proven strategies."
-                }
-                ctaText={"Register Now"}
+                headline="National Employee Owner Summit 2025"
+                description="Transform your ESOP journey through hands-on learning and peer connection. Join 40 fellow employee-owners for an intensive two-day experience featuring interactive simulations, financial literacy training, and ownership culture building."
+                ctaText="Register Now"
+                pricing={{
+                  member: {
+                    type: "member",
+                    firstPerson: 795,
+                    additional: 650,
+                  },
+                  nonMember: {
+                    type: "non-member",
+                    firstPerson: 1050,
+                    additional: 900,
+                  },
+                }}
               />
             </div>
             <div className="flex-1">
