@@ -6,10 +6,11 @@ import Autoplay from "embla-carousel-autoplay";
 interface PricingTier {
   type: "member" | "non-member";
   firstPerson: number;
-  additional: number;
+  additional?: number;
 }
 
 interface MeetingHeroProps {
+  onClick?: () => void;
   images: string[];
   description: string;
   headline: string;
@@ -26,12 +27,13 @@ const MeetingHero = ({
   description,
   ctaText = "Register Now",
   pricing,
+  onClick,
 }: MeetingHeroProps) => {
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-50" />
 
-      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 space-y-8">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 space-y-6">
         {/* Carousel Section */}
         <div className="relative h-[300px]">
           <Carousel
@@ -61,9 +63,7 @@ const MeetingHero = ({
 
         {/* Headline */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
-            {headline}
-          </h2>
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-gray-900">{headline}</h2>
         </div>
 
         {/* Description */}
@@ -85,12 +85,13 @@ const MeetingHero = ({
               <div className="space-y-2">
                 <p className="text-gray-700">
                   <span className="font-bold text-2xl">${pricing.member.firstPerson}</span>
-                  <span className="text-sm text-gray-500"> first person</span>
                 </p>
-                <p className="text-gray-700">
-                  <span className="font-bold text-xl">${pricing.member.additional}</span>
-                  <span className="text-sm text-gray-500"> each additional person</span>
-                </p>
+                {pricing.member.additional ? (
+                  <p className="text-gray-700">
+                    <span className="font-bold text-xl">${pricing.member.additional}</span>
+                    <span className="text-sm text-gray-500"> each additional person</span>
+                  </p>
+                ) : null}
               </div>
             </div>
 
@@ -105,12 +106,13 @@ const MeetingHero = ({
               <div className="space-y-2">
                 <p className="text-gray-700">
                   <span className="font-bold text-2xl">${pricing.nonMember.firstPerson}</span>
-                  <span className="text-sm text-gray-500"> first person</span>
                 </p>
-                <p className="text-gray-700">
-                  <span className="font-bold text-xl">${pricing.nonMember.additional}</span>
-                  <span className="text-sm text-gray-500"> each additional person</span>
-                </p>
+                {pricing.member.additional ? (
+                  <p className="text-gray-700">
+                    <span className="font-bold text-xl">${pricing.nonMember.additional}</span>
+                    <span className="text-sm text-gray-500"> each additional person</span>
+                  </p>
+                ) : null}
               </div>
             </div>
           </div>
@@ -118,7 +120,7 @@ const MeetingHero = ({
 
         {/* CTA Button */}
         <div className="flex justify-start">
-          <Button size="lg" className="px-8">
+          <Button size="lg" className="px-8" onClick={onClick && onClick}>
             {ctaText}
           </Button>
         </div>

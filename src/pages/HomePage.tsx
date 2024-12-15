@@ -95,7 +95,11 @@ const HomePage = () => {
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
             <LandingCard
               {...generalData}
-              onClick={() => navigate("/general/1")}
+              onClick={() =>
+                navigate(
+                  `/article/${generalData.title}?title=${generalData.title}&description=${generalData.optimized_content}`
+                )
+              }
               cta_text="Read More"
             />
           </div>

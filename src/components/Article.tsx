@@ -3,65 +3,64 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { BookmarkIcon, Calendar, Clock, ShareIcon, ThumbsUp } from "lucide-react";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams, useParams } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 
 interface ArticleProps {
-  title?: string;
-  subtitle?: string;
-  author?: {
+  defaultTitle?: string;
+  defaultSubtitle?: string;
+  defaultAuthor?: {
     name: string;
     avatar: string;
     role: string;
   };
-  publishDate?: string;
-  readTime?: string;
-  content?: string;
-  featuredImage?: string;
+  defaultPublishDate?: string;
+  defaultReadTime?: string;
+  defaultContent?: string;
+  defaultFeaturedImage?: string;
 }
 
 const Article = ({
-  title = "The Future of Employee Ownership: A Comprehensive Guide",
-  subtitle = "Understanding the key trends and strategies shaping workplace transformation",
-  author = {
+  defaultTitle = "The Future of Employee Ownership: A Comprehensive Guide",
+  defaultSubtitle = "Understanding the key trends and strategies shaping workplace transformation",
+  defaultAuthor = {
     name: "Sarah Johnson",
     avatar: "/api/placeholder/40/40",
     role: "Senior Workplace Strategist",
   },
-  publishDate = "March 15, 2024",
-  readTime = "8 min read",
-  content = `Employee ownership is rapidly becoming one of the most significant trends in modern business structure. This comprehensive guide explores the various models, benefits, and implementation strategies that organizations can utilize to successfully transition to employee ownership.
-
-  The concept of employee ownership has evolved significantly over the past decade, with new models emerging that offer greater flexibility and accessibility for organizations of all sizes. This transformation has been driven by a combination of factors, including:
-
-  Recent studies have shown that companies with employee ownership structures typically experience higher productivity levels, increased employee satisfaction, and better long-term financial performance. These benefits extend beyond the immediate organizational context, contributing to broader economic stability and reduced wealth inequality.
-
-  However, implementing an employee ownership structure requires careful planning and consideration of various factors. Organizations must navigate legal requirements, establish clear governance structures, and develop comprehensive communication strategies to ensure successful transitions.
-
-  The future of employee ownership looks increasingly promising, with new technologies and frameworks making it easier than ever for organizations to implement these structures. As we move forward, we can expect to see continued innovation in this space, with more organizations recognizing the value of shared ownership models.`,
-  featuredImage = "/api/placeholder/1200/600",
+  defaultPublishDate = "March 15, 2024",
+  defaultReadTime = "8 min read",
+  defaultContent = `Employee ownership is rapidly becoming...`,
+  defaultFeaturedImage = "/api/placeholder/1200/600",
 }: ArticleProps) => {
   const { pathname } = useLocation();
+  const [searchParams] = useSearchParams();
+  const { title: urlTitle } = useParams();
+
+  const title = urlTitle ? decodeURIComponent(urlTitle) : defaultTitle;
+  const description = searchParams.get("description") || defaultContent;
+
   useEffect(() => {
-    // Scroll to top with smooth animation
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "instant",
     });
-
-    // Alternative without smooth scrolling:
-    // window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="w-full h-96 relative bg-black">
-        <img src={featuredImage} alt={title} className="w-full h-full object-cover opacity-50" />
+        <img
+          src={defaultFeaturedImage}
+          alt={title}
+          className="w-full h-full object-cover opacity-50"
+        />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-4xl mx-auto px-4 text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-            <p className="text-xl md:text-2xl opacity-90">{subtitle}</p>
+            <p className="text-xl md:text-2xl opacity-90">{defaultSubtitle}</p>
           </div>
         </div>
       </div>
@@ -73,12 +72,12 @@ const Article = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Avatar>
-                <AvatarImage src={author.avatar} alt={author.name} />
-                <AvatarFallback>{author.name[0]}</AvatarFallback>
+                <AvatarImage src={defaultAuthor.avatar} alt={defaultAuthor.name} />
+                <AvatarFallback>{defaultAuthor.name[0]}</AvatarFallback>
               </Avatar>
               <div>
-                <p className="font-semibold">{author.name}</p>
-                <p className="text-sm text-gray-500">{author.role}</p>
+                <p className="font-semibold">{defaultAuthor.name}</p>
+                <p className="text-sm text-gray-500">{defaultAuthor.role}</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -94,24 +93,39 @@ const Article = ({
           <div className="flex items-center space-x-4 mt-4 text-gray-500">
             <div className="flex items-center">
               <Calendar className="h-4 w-4 mr-2" />
-              {publishDate}
+              {defaultPublishDate}
             </div>
             <div className="flex items-center">
               <Clock className="h-4 w-4 mr-2" />
-              {readTime}
+              {defaultReadTime}
             </div>
           </div>
         </div>
 
         <Separator className="my-8" />
 
-        {/* Article Body */}
+        {/* Article Body with Markdown Rendering */}
         <div className="prose prose-lg max-w-none">
-          {content.split("\n\n").map((paragraph, index) => (
-            <p key={index} className="mb-6 text-gray-700 leading-relaxed">
-              {paragraph}
-            </p>
-          ))}
+          <ReactMarkdown
+            components={{
+              // Customize heading styles
+              h4: ({ ...props }) => <h4 className="text-xl font-semibold mb-4 mt-6" {...props} />,
+              // Style paragraphs
+              p: ({ ...props }) => <p className="mb-4 text-gray-700 leading-relaxed" {...props} />,
+              // Style lists
+              ul: ({ ...props }) => <ul className="space-y-6 list-disc pl-4" {...props} />,
+              // Style list items
+              li: ({ ...props }) => <li className="pl-2" {...props} />,
+              // Style strong text (bold)
+              strong: ({ ...props }) => (
+                <strong className="font-semibold text-gray-900" {...props} />
+              ),
+              // Style paragraphs within list items
+              // Style bold text
+            }}
+          >
+            {description}
+          </ReactMarkdown>
         </div>
 
         {/* Article Footer */}
@@ -133,29 +147,6 @@ const Article = ({
             </Button>
           </div>
         </div>
-
-        {/* Related Articles */}
-        {/* <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1, 2].map((i) => (
-              <Card key={i} className="p-4">
-                <img
-                  src="/api/placeholder/400/200"
-                  alt="Related article thumbnail"
-                  className="w-full h-48 object-cover rounded-lg mb-4"
-                />
-                <h3 className="font-semibold mb-2">Employee Ownership Success Stories</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Discover how companies have successfully implemented employee ownership models...
-                </p>
-                <Button variant="link" className="p-0">
-                  Read More →
-                </Button>
-              </Card>
-            ))}
-          </div>
-        </div> */}
       </div>
     </div>
   );

@@ -1,70 +1,53 @@
-import AuthModal from "@/components/AuthModal";
-import SplitHeroSection from "@/components/SplitHeroSection";
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import LevelTwoComponent from "@/components/LevelTwoComponent";
+import imageOne from "@/assets/conference-image-1.jpg";
+import imageTwo from "@/assets/conference-image-2.jpg";
+import imageThree from "@/assets/conference-image-3.jpg";
+import imageFour from "@/assets/conference-image-4.jpg";
+import imageFive from "@/assets/conference-image-5.jpg";
+import topicData from "@/data/results.json";
+import { useNavigate } from "react-router-dom";
 
-const JointPage = () => {
-  const { pathname } = useLocation();
+const data = {
+  persona: "Employee Member",
+  journey_stage: "consideration",
+  title: "Understanding Your Path to Ownership: A Guide to Employee Ownership Models",
+  description:
+    "Discover how employee ownership can benefit you and your colleagues. Learn about different ownership structures and how they can create opportunities for wealth building and workplace participation.",
+  optimized_content:
+    "As an employee, you have exciting opportunities to become an owner in your workplace through various employee ownership models. Each model offers unique benefits and ways to build long-term wealth while contributing to your company's success.\n\nThe most common path to employee ownership is through an Employee Stock Ownership Plan (ESOP). Think of an ESOP as a special retirement benefit where instead of just contributing your own money like in a 401(k), your company contributes its stock to a trust for your benefit. You don't have to pay anything to participate, and you can build significant wealth over time as your company grows.\n\nWorker cooperatives offer a different approach, where you can become a direct owner-member of your company. While less common in the US, cooperatives provide opportunities for direct participation in company decisions and annual profit sharing through what's called patronage dividends.\n\nA newer option gaining attention is the Employee Ownership Trust (EOT). While you don't own shares directly in an EOT, you benefit from profit sharing and have assurance that the company will continue to operate for employees' benefit.\n\nEach model has its own advantages, from tax benefits to wealth-building opportunities. The key is understanding how these structures can work for you and your colleagues.",
+  cta_text: "Learn More About Employee Ownership Options",
+  relevance_score: 0.95,
+  technical_level: 2,
+  transformation_rationale:
+    "The content has been transformed to address the Employee Member persona by focusing on personal benefits and opportunities rather than technical implementation details. The language is accessible but informative, emphasizing the practical aspects of ownership that matter most to employees: wealth building, participation, and long-term benefits. The content progression allows for initial understanding while hinting at deeper information available in full view.",
+  diversity_score: 0.0125,
+  total_persona_stage_content: 115,
+};
+
+const EmployeeOwnerLevelTwoPage = () => {
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
-  }, [pathname]);
-
-  const data = {
-    persona: "Employee Owner",
-    journey_stage: "consideration",
-    title: "Understanding Your Company's Transition to Employee Ownership",
-    description:
-      "Learn about the pathways to employee ownership and what they mean for your company's future. Discover how ESOPs and worker cooperatives can preserve jobs while creating sustainable business transitions.",
-    optimized_content:
-      "As an employee owner, understanding the transition process to employee ownership helps you make informed decisions about your company's future. There are two primary paths to employee ownership, each with distinct advantages for different business situations.\n\nThe Employee Stock Ownership Plan (ESOP) is the most widely used method, particularly well-suited for:\n- Companies with 20+ employees\n- Capital-intensive businesses\n- Situations where partial ownership transfer is desired\n- Organizations seeking significant tax advantages\n\nESOPs function as qualified retirement plans but differ in crucial ways: they invest primarily in company stock and can borrow money to finance ownership transitions. This structure provides flexibility in succession planning and can work alongside other ownership strategies.\n\nWorker cooperatives offer an alternative approach, ideal for:\n- Smaller companies\n- Businesses planning complete ownership transfer\n- Organizations seeking lower implementation costs\n- Companies valuing direct employee participation\n\nBoth models preserve jobs and maintain company independence while offering tax benefits. For sellers, the '1042 Rollover' provision can shelter capital gains when selling 30% or more of the company to either an ESOP or cooperative.\n\nThe choice between these models often depends on company size, financial structure, and desired level of employee participation. Understanding these options helps you engage more effectively in your company's ownership journey.",
-    cta_text: "Schedule a Consultation to Learn More",
-    relevance_score: 0.95,
-    technical_level: 3,
-    transformation_rationale:
-      "Content has been structured to address employee owners' need for deeper understanding of ownership transition options. The technical level is higher than introductory content, reflecting the audience's existing familiarity with employee ownership concepts. The progressive disclosure model allows readers to grasp key differences between ownership models before exploring specific details.",
-    diversity_score: 0.0132,
-    total_persona_stage_content: 116,
-  };
-
   return (
-    <>
-      <AuthModal
-        isOpen={showModal}
-        onClose={() => {
-          setShowModal(false);
-        }}
-        onSuccess={() => {
-          navigate("/owner/1");
-        }}
-      />
-      <div className="min-h-screen bg-gray-50 p-4 md:p-8">
-        <SplitHeroSection
-          callout={{
-            buttonText: "Become a Member Today",
-            onButtonClick: () => navigate("/network-signup"),
-          }}
-          rightSideContent={{
-            heading: data.title,
-            text: data.optimized_content,
-            buttonText: "Read More",
-            onButtonClick: () => {
-              setShowModal(true);
-            },
-          }}
-          title="Own Your Future"
-          highlightedTitle="Transform Your Workplace"
-          description="Join thousands of employee owners who've taken control of their financial destiny. Learn how employee ownership can secure your future while building lasting company value."
-        />
-      </div>
-    </>
+    <LevelTwoComponent
+      heroCtaClick={() => navigate("/network-signup")}
+      heroImages={[imageOne, imageTwo, imageThree, imageFour, imageFive]}
+      heroHeadline="39th Annual Ohio Employee Ownership Conference 2025"
+      heroDescription="Join Ohio's largest gathering of employee-owners and business leaders for a transformative day of learning and connection. Experience 20+ expert-led sessions, interactive workshops, and meaningful networking opportunities designed to strengthen your ownership journey."
+      heroCtaText="Register Now"
+      heroPricing={{
+        member: {
+          type: "member",
+          firstPerson: 49.99,
+        },
+        nonMember: {
+          type: "non-member",
+          firstPerson: 69.99,
+        },
+      }}
+      mainContent={data}
+      topicData={topicData}
+      persona="Employee Member"
+    />
   );
 };
 
-export default JointPage;
+export default EmployeeOwnerLevelTwoPage;

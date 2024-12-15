@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import pdf from "@/assets/member-form.pdf";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 const NetworkSignupPage = () => {
+  useScrollToTop();
   const benefits = [
     "Free consultation services with OEOC experts",
     "Generous discounts on personalized in-company training",
