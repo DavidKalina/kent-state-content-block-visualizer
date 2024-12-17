@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import Autoplay from "embla-carousel-autoplay";
+import { Card } from "./ui/card";
 
 interface PricingTier {
   type: "member" | "non-member";
@@ -30,14 +31,14 @@ const MeetingHero = ({
   onClick,
 }: MeetingHeroProps) => {
   return (
-    <div className="rounded-lg p-6 h-full relative">
+    <Card className="rounded-lg p-6 relative">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-50 rounded-lg" />
 
-      <div className="relative w-full mx-auto space-y-4">
+      <div className="relative w-full mx-auto flex flex-col">
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Carousel Section */}
-          <div className="w-full md:h-[180px]">
+          <div className="w-full h-[200px]">
             <Carousel
               className="w-full h-full"
               plugins={[
@@ -63,21 +64,24 @@ const MeetingHero = ({
           </div>
 
           {/* Text Content Section */}
-          <div className="flex flex-col justify-center space-y-3">
-            <h2 className="text-2xl font-bold text-gray-900">{headline}</h2>
-            <p className="text-base text-gray-600 line-clamp-6">{description}</p>
+          <div className="flex flex-col h-[200px]">
+            <h2 className="text-md font-bold text-gray-900 mb-3">{headline}</h2>
+            <div className="overflow-y-auto flex-1">
+              <p className="text-base text-gray-600 line-clamp-6">{description}</p>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        {/* Bottom Section */}
+        <div className="mt-6 flex flex-col md:flex-row md:items-center gap-4">
           {/* Pricing Section */}
           {pricing && (
             <div className="flex gap-4 flex-1">
               {/* Member Pricing */}
-              <div className="flex-1 p-2.5 rounded-lg border border-blue-200 bg-blue-50">
+              <div className="flex-1 p-2.5 rounded-lg border border-amber-200 bg-amber-50">
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-semibold text-gray-900">Members</h3>
-                  <Badge variant="secondary" className="bg-blue-100 text-blue-800 text-[10px]">
+                  <Badge variant="secondary" className="bg-amber-100 text-amber-800 text-[10px]">
                     OEOC/NCEO
                   </Badge>
                 </div>
@@ -118,14 +122,12 @@ const MeetingHero = ({
           )}
 
           {/* CTA Button */}
-          <div className="flex justify-end mt-auto">
-            <Button onClick={onClick} className="px-6 whitespace-nowrap">
-              {ctaText}
-            </Button>
-          </div>
+          <Button onClick={onClick} className="px-6 whitespace-nowrap mt-auto">
+            {ctaText}
+          </Button>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
