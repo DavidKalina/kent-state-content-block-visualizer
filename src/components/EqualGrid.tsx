@@ -6,7 +6,7 @@ const FourPanelGrid = ({ children }: { children: React.ReactNode[] }) => {
 
   return (
     <div className="w-full h-screen">
-      <div className="grid grid-cols-2 grid-rows-2 h-full gap-4 px-16 py-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 h-full gap-4 md:px-16 md:py-12 md:pb-24">
         {panels.map((panel, index) => (
           <div key={index}>{panel}</div>
         ))}

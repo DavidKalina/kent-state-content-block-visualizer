@@ -30,14 +30,14 @@ const MeetingHero = ({
   onClick,
 }: MeetingHeroProps) => {
   return (
-    <div className="bg-white rounded-lg p-6 h-full relative">
+    <div className="rounded-lg p-6 h-full relative">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-50 rounded-lg" />
 
       <div className="relative w-full mx-auto space-y-4">
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Carousel Section */}
-          <div className="w-full h-[180px]">
+          <div className="w-full md:h-[180px]">
             <Carousel
               className="w-full h-full"
               plugins={[
@@ -65,7 +65,7 @@ const MeetingHero = ({
           {/* Text Content Section */}
           <div className="flex flex-col justify-center space-y-3">
             <h2 className="text-2xl font-bold text-gray-900">{headline}</h2>
-            <p className="text-base text-gray-600">{description}</p>
+            <p className="text-base text-gray-600 line-clamp-6">{description}</p>
           </div>
         </div>
 

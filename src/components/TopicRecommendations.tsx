@@ -61,7 +61,7 @@ const TopicCard = ({ title, description, optimized_content }: TopicCardProps) =>
 const TopicRecommendations = ({ data, persona, showBadge = true }: TopicRecommendationsProps) => {
   return (
     <div className="space-y-2">
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col md:flex-row items-center gap-2">
         <h2 className="text-lg font-semibold">Recommended Topics</h2>
         {showBadge && (
           <Badge variant="secondary" className="text-xs">
@@ -70,7 +70,7 @@ const TopicRecommendations = ({ data, persona, showBadge = true }: TopicRecommen
         )}
       </div>
 
-      <div className="grid gap-2 max-h-[300px] flex-1 overflow-y-auto">
+      <div className="grid gap-2 md:max-h-[340px] flex-1 overflow-y-auto">
         {data.map((item: any, index: number) => (
           <TopicCard
             key={index}
