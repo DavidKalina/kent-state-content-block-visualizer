@@ -22,7 +22,7 @@ const HeroSection = () => {
           <div className="space-y-8">
             {/* Unified benefit statement */}
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900">
+              <h1 className="text-2xl md:text-6xl font-bold tracking-tight text-gray-900">
                 <span className="whitespace-nowrap">Unlock the Full Value of</span>
                 <span className="block text-blue-600">Employee Ownership</span>
               </h1>

@@ -7,6 +7,7 @@ import AuthModal from "./AuthModal";
 import LandingPageCard from "./LandingPageCard";
 import MeetingHero from "./MeetingHero";
 import TopicRecommendations from "./TopicRecommendations";
+import FourPanelGrid from "./EqualGrid";
 
 interface PricingTier {
   type: "member" | "non-member";
@@ -93,53 +94,43 @@ const LevelTwoComponent = ({
   };
 
   return (
-    <>
-      <div className="min-h-screen bg-gray-50 p-8 md:p-16">
-        <div className="mx-auto max-w-7xl space-y-24">
-          <div className="flex">
-            <div className="flex-1">
-              <MeetingHero
-                onClick={heroCtaClick}
-                images={heroImages}
-                headline={heroHeadline}
-                description={heroDescription}
-                ctaText={heroCtaText}
-                pricing={heroPricing}
-              />
-            </div>
-            <div className="flex-1">
-              <LandingPageCard
-                {...mainContent}
-                onClick={() => handleArticleClick(mainContent)}
-                clamp={6}
-                description={mainContent.optimized_content}
-                cta_text="Read More"
-              />
-            </div>
-          </div>
-          <div className="flex gap-8">
-            <div className="flex-1">
-              {isAuthenticated && (
-                <TopicRecommendations
-                  showBadge={showBadge}
-                  data={orderedTopicData}
-                  persona={persona}
-                />
-              )}
-            </div>
-            <div className="flex-1">
-              <h2 className="text-2xl font-semibold mb-4 opacity-0">More Content</h2>
-              <LandingPageCard
-                {...secondaryData}
-                description={secondaryData.optimized_content}
-                cta_text="Read More"
-                clamp={5}
-                onClick={() => handleArticleClick(secondaryData)}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <FourPanelGrid>
+        <MeetingHero
+          onClick={heroCtaClick}
+          images={heroImages}
+          headline={heroHeadline}
+          description={heroDescription}
+          ctaText={heroCtaText}
+          pricing={heroPricing}
+        />
+        <LandingPageCard
+          {...mainContent}
+          onClick={() => handleArticleClick(mainContent)}
+          clamp={6}
+          className="h-full"
+          cardClassName="h-full"
+          titleClassName="text-md"
+          contentClassName="text-base"
+          description={mainContent.optimized_content}
+          cta_text="Read More"
+        />
+        {isAuthenticated && (
+          <TopicRecommendations showBadge={showBadge} data={orderedTopicData} persona={persona} />
+        )}
+        <LandingPageCard
+          {...secondaryData}
+          description={secondaryData.optimized_content}
+          cta_text="Read More"
+          clamp={5}
+          onClick={() => handleArticleClick(secondaryData)}
+          className="h-full"
+          titleClassName="text-md"
+          contentClassName="text-base"
+          buttonClassName="text-sm"
+          cardClassName="h-full"
+        />
+      </FourPanelGrid>
       <AuthModal
         isOpen={showModal}
         onClose={() => {
@@ -154,7 +145,7 @@ const LevelTwoComponent = ({
           }
         }}
       />
-    </>
+    </div>
   );
 };
 

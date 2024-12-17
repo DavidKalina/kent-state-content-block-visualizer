@@ -12,6 +12,14 @@ interface SimplifiedPersonaCardProps {
   journey_stage: string;
   onClick?: () => void;
   clamp?: number;
+  className?: string;
+  cardClassName?: string;
+  headerClassName?: string;
+  contentClassName?: string;
+  footerClassName?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
+  buttonClassName?: string;
 }
 
 const LandingPageCard = ({
@@ -20,49 +28,70 @@ const LandingPageCard = ({
   cta_text,
   onClick,
   clamp = 2,
+  className,
+  cardClassName,
+  headerClassName,
+  contentClassName,
+  footerClassName,
+  titleClassName,
+  descriptionClassName,
+  buttonClassName,
 }: SimplifiedPersonaCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Card
-      className="flex flex-col min-h-[300px] transition-all duration-300 hover:shadow-lg relative overflow-hidden"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <CardHeader className="flex-none">
-        <h3 className="font-semibold text-xl leading-tight line-clamp-2">{title}</h3>
-      </CardHeader>
+    <div className={className}>
+      <Card
+        className={cn(
+          "flex flex-col min-h-[300px] transition-all duration-300 hover:shadow-lg relative overflow-hidden",
+          cardClassName
+        )}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <CardHeader className={cn("flex-none", headerClassName)}>
+          <h3 className={cn("font-semibold text-xl leading-tight line-clamp-2", titleClassName)}>
+            {title}
+          </h3>
+        </CardHeader>
 
-      <CardContent className="flex-grow">
-        <p
-          className={cn(`text-gray-600`, {
-            "line-clamp-1": clamp === 1,
-            "line-clamp-2": clamp === 2,
-            "line-clamp-3": clamp === 3,
-            "line-clamp-4": clamp === 4,
-            "line-clamp-5": clamp === 5,
-            "line-clamp-6": clamp === 6,
-          })}
-        >
-          {description}
-        </p>
-      </CardContent>
+        <CardContent className={cn("flex-grow", contentClassName)}>
+          <p
+            className={cn(
+              "text-gray-600",
+              {
+                "line-clamp-1": clamp === 1,
+                "line-clamp-2": clamp === 2,
+                "line-clamp-3": clamp === 3,
+                "line-clamp-4": clamp === 4,
+                "line-clamp-5": clamp === 5,
+                "line-clamp-6": clamp === 6,
+              },
+              descriptionClassName
+            )}
+          >
+            {description}
+          </p>
+        </CardContent>
 
-      <CardFooter className="flex-none pt-4">
-        <Button
-          onClick={() => onClick && onClick()}
-          className="w-full group"
-          variant={isHovered ? "default" : "secondary"}
-        >
-          <span className="relative z-10 flex items-center justify-center gap-2 transition-transform duration-300 group-hover:translate-x-[-8px]">
-            {cta_text}
-            <ArrowRight
-              className={`h-4 w-4 transition-all duration-300 ${isHovered ? "translate-x-1" : ""}`}
-            />
-          </span>
-        </Button>
-      </CardFooter>
-    </Card>
+        <CardFooter className={cn("flex-none pt-4", footerClassName)}>
+          <Button
+            onClick={() => onClick && onClick()}
+            className={cn("w-full group", buttonClassName)}
+            variant={isHovered ? "default" : "secondary"}
+          >
+            <span className="relative z-10 flex items-center justify-center gap-2 transition-transform duration-300 group-hover:translate-x-[-8px]">
+              {cta_text}
+              <ArrowRight
+                className={`h-4 w-4 transition-all duration-300 ${
+                  isHovered ? "translate-x-1" : ""
+                }`}
+              />
+            </span>
+          </Button>
+        </CardFooter>
+      </Card>
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#203c73] backdrop-blur-sm border-b border-gray-800 text-slate-200 py-8 mt-auto">
+    <footer className="w-full bg-[#203c73] h-[320px] backdrop-blur-sm border-b border-gray-800 text-slate-200 py-4 mt-auto">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-8 text-center">
           {/* Contact Section */}
