@@ -31,7 +31,7 @@ const MeetingHero = ({
   onClick,
 }: MeetingHeroProps) => {
   return (
-    <Card className="rounded-lg p-6 relative">
+    <Card className="rounded-lg p-6 relative h-full">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-50 rounded-lg" />
 
       <div className="relative w-full mx-auto flex flex-col">
