@@ -78,42 +78,45 @@ const MeetingHero = ({
           {pricing && (
             <div className="flex gap-4 flex-1">
               {/* Member Pricing */}
-              <div className="flex-1 p-2.5 rounded-lg border border-amber-200 bg-amber-50">
+              <div className="flex-1 p-2.5 rounded-lg border border-amber-200 bg-amber-50 max-h-[100px]">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-semibold text-gray-900">Members</h3>
+                  <h3 className="text-xs font-semibold text-gray-900">Members</h3>
                   <Badge variant="secondary" className="bg-amber-100 text-amber-800 text-[10px]">
                     OEOC/NCEO
                   </Badge>
                 </div>
                 <div className="mt-1">
                   <p className="text-gray-700">
-                    <span className="text-lg font-bold">${pricing.member.firstPerson}</span>
+                    <span className="text-md font-bold">${pricing.member.firstPerson}</span>
                   </p>
                   {pricing.member.additional && (
                     <p className="text-gray-700">
-                      <span className="font-bold">${pricing.member.additional}</span>
-                      <span className="text-xs text-gray-500"> each additional person</span>
+                      <span className="font-bold text-xs">${pricing.member.additional}</span>
+                      <span className="text-[10px] text-gray-500 "> each additional person</span>
                     </p>
                   )}
                 </div>
               </div>
 
               {/* Non-Member Pricing */}
-              <div className="flex-1 p-2.5 rounded-lg border border-gray-200 bg-gray-50">
+              <div className="flex-1 p-2.5 rounded-lg border border-gray-200 bg-gray-50 max-h-[100px]">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-semibold text-gray-900">Non-Members</h3>
+                  <h3 className="text-xs font-semibold text-gray-900">Non-Members</h3>
                   <Badge variant="secondary" className="bg-gray-100 text-[10px]">
                     Standard
                   </Badge>
                 </div>
                 <div className="mt-1">
                   <p className="text-gray-700">
-                    <span className="text-lg font-bold">${pricing.nonMember.firstPerson}</span>
+                    <span className="text-md font-bold">${pricing.nonMember.firstPerson}</span>
                   </p>
                   {pricing.nonMember.additional && (
                     <p className="text-gray-700">
-                      <span className="font-bold">${pricing.nonMember.additional}</span>
-                      <span className="text-xs text-gray-500"> each additional person</span>
+                      <span className="font-bold text-xs">${pricing.nonMember.additional}</span>
+                      <span className="text-[10px] text-gray-500 truncate">
+                        {" "}
+                        each additional person
+                      </span>
                     </p>
                   )}
                 </div>
