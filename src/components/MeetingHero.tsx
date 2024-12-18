@@ -32,7 +32,7 @@ const MeetingHero = ({
 }: MeetingHeroProps) => {
   return (
     <Card className="rounded-lg p-6 relative h-full">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-50 rounded-lg" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#f9f7ff] via-[#f7faff] to-[#f9f7ff] opacity-50 rounded-lg" />
 
       <div className="relative w-full mx-auto flex flex-col">
         {/* Main Content Grid */}

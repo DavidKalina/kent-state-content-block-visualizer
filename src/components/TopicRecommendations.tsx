@@ -5,20 +5,22 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { personaColors } from "@/pages/HomePage";
 
 interface TopicRecommendationsProps {
   data: any;
   showBadge?: boolean;
-  persona: string;
+  persona: "Business Owner" | "Employee Member" | "General" | "Promo";
 }
 
 interface TopicCardProps {
   title: string;
   description: string;
   optimized_content: string;
+  persona: "Business Owner" | "Employee Member" | "General" | "Promo";
 }
 
-const TopicCard = ({ title, description, optimized_content }: TopicCardProps) => {
+const TopicCard = ({ title, description, optimized_content, persona }: TopicCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Encode the parameters for URL safety
@@ -28,7 +30,9 @@ const TopicCard = ({ title, description, optimized_content }: TopicCardProps) =>
   }).toString();
 
   return (
-    <Card className="group hover:shadow-md transition-shadow duration-200">
+    <Card
+      className={`group hover:shadow-md transition-shadow duration-200 ${personaColors[persona]}`}
+    >
       <CardHeader className="space-y-2">
         <div className="flex items-start justify-between gap-4">
           <CardTitle className="text-md">{title}</CardTitle>
@@ -73,6 +77,7 @@ const TopicRecommendations = ({ data, persona, showBadge = true }: TopicRecommen
       <div className="grid gap-2 md:max-h-[340px] flex-1 overflow-y-auto">
         {data.map((item: any, index: number) => (
           <TopicCard
+            persona={persona}
             key={index}
             description={item.description}
             optimized_content={item.optimized_content}

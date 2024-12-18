@@ -4,6 +4,13 @@ import SocialProof from "@/components/SocialProof";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+export const personaColors = {
+  "Employee Member": "bg-gradient-to-r from-[#fffaf0] via-[#fef8e7] to-[#fffaf0]", // Subtle pastel yellow
+  "Business Owner": "bg-gradient-to-r from-[#f0f9ff] via-[#e8f5fe] to-[#f0f9ff]", // Light pastel blue
+  Promo: "bg-gradient-to-r from-[#fcf4ff] via-[#f7e8fc] to-[#fcf4ff]", // Very light pastel purple
+  General: "bg-gradient-to-r from-[#f4fff8] via-[#e8fcef] to-[#f4fff8]", // Subtle pastel green
+};
+
 const HomePage = () => {
   const [viewMode] = useState<"grid" | "list">("grid");
 
@@ -94,6 +101,7 @@ const HomePage = () => {
         >
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
             <LandingCard
+              cardClassName={personaColors["General"]}
               {...generalData}
               onClick={() =>
                 navigate(
@@ -105,6 +113,7 @@ const HomePage = () => {
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
             <LandingCard
+              cardClassName={personaColors["Business Owner"]}
               {...ownerData}
               description={ownerData.optimized_content}
               cta_text="Read More"
@@ -112,10 +121,16 @@ const HomePage = () => {
             />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-            <LandingCard {...promoData} onClick={() => navigate("/promo")} cta_text="Read More" />
+            <LandingCard
+              cardClassName={personaColors["Promo"]}
+              {...promoData}
+              onClick={() => navigate("/promo")}
+              cta_text="Read More"
+            />
           </div>
           <div className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
             <LandingCard
+              cardClassName={personaColors["Employee Member"]}
               {...employeeData}
               cta_text="Read More"
               onClick={() => navigate("/employee")}

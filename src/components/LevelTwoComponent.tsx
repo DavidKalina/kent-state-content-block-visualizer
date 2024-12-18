@@ -8,6 +8,7 @@ import LandingPageCard from "./LandingPageCard";
 import MeetingHero from "./MeetingHero";
 import TopicRecommendations from "./TopicRecommendations";
 import FourPanelGrid from "./EqualGrid";
+import { personaColors } from "@/pages/HomePage";
 
 interface PricingTier {
   type: "member" | "non-member";
@@ -109,14 +110,22 @@ const LevelTwoComponent = ({
           onClick={() => handleArticleClick(mainContent)}
           clamp={6}
           className="h-full"
-          cardClassName="h-full"
+          cardClassName={`h-full ${
+            personaColors[persona as "Business Owner" | "Employee Member" | "General" | "Promo"]
+          }`}
           titleClassName="text-md"
           contentClassName="text-base"
           description={mainContent.optimized_content}
           cta_text="Read More"
         />
-        {isAuthenticated && (
-          <TopicRecommendations showBadge={showBadge} data={orderedTopicData} persona={persona} />
+        {isAuthenticated ? (
+          <TopicRecommendations
+            showBadge={showBadge}
+            data={orderedTopicData}
+            persona={persona as "Business Owner" | "Employee Member" | "General" | "Promo"}
+          />
+        ) : (
+          <div />
         )}
         <LandingPageCard
           {...secondaryData}
@@ -128,7 +137,9 @@ const LevelTwoComponent = ({
           titleClassName="text-md"
           contentClassName="text-base"
           buttonClassName="text-sm"
-          cardClassName="h-full"
+          cardClassName={`h-full ${
+            personaColors[persona as "Business Owner" | "Employee Member" | "General" | "Promo"]
+          }`}
         />
       </FourPanelGrid>
       <AuthModal
