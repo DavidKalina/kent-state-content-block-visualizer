@@ -96,52 +96,76 @@ const LevelTwoComponent = ({
 
   return (
     <div className="min-h-screen flex flex-col">
-      <FourPanelGrid>
-        <MeetingHero
-          onClick={heroCtaClick}
-          images={heroImages}
-          headline={heroHeadline}
-          description={heroDescription}
-          ctaText={heroCtaText}
-          pricing={heroPricing}
-        />
-        <LandingPageCard
-          {...mainContent}
-          onClick={() => handleArticleClick(mainContent)}
-          clamp={6}
-          className="h-full"
-          cardClassName={`h-full ${
-            personaColors[persona as "Business Owner" | "Employee Member" | "General" | "Promo"]
-          }`}
-          titleClassName="text-md"
-          contentClassName="text-base"
-          description={mainContent.optimized_content}
-          cta_text="Read More"
-        />
-        {isAuthenticated ? (
-          <TopicRecommendations
-            showBadge={showBadge}
-            data={orderedTopicData}
-            persona={persona as "Business Owner" | "Employee Member" | "General" | "Promo"}
-          />
-        ) : (
-          <div />
-        )}
-        <LandingPageCard
-          {...secondaryData}
-          description={secondaryData.optimized_content}
-          cta_text="Read More"
-          clamp={5}
-          onClick={() => handleArticleClick(secondaryData)}
-          className="h-full"
-          titleClassName="text-md"
-          contentClassName="text-base"
-          buttonClassName="text-sm"
-          cardClassName={`h-full ${
-            personaColors[persona as "Business Owner" | "Employee Member" | "General" | "Promo"]
-          }`}
-        />
-      </FourPanelGrid>
+      <FourPanelGrid
+        panels={[
+          {
+            content: (
+              <MeetingHero
+                isExpanded={!isAuthenticated}
+                onClick={heroCtaClick}
+                images={heroImages}
+                headline={heroHeadline}
+                description={heroDescription}
+                ctaText={heroCtaText}
+                pricing={heroPricing}
+              />
+            ),
+            rowSpan: isAuthenticated ? 1 : 2,
+          },
+          {
+            content: (
+              <LandingPageCard
+                {...mainContent}
+                onClick={() => handleArticleClick(mainContent)}
+                clamp={6}
+                className="h-full"
+                cardClassName={`h-full ${
+                  personaColors[
+                    persona as "Business Owner" | "Employee Member" | "General" | "Promo"
+                  ]
+                }`}
+                titleClassName="text-md"
+                contentClassName="text-base"
+                description={mainContent.optimized_content}
+                cta_text="Read More"
+              />
+            ),
+            rowSpan: 1,
+          },
+          {
+            content: isAuthenticated ? (
+              <TopicRecommendations
+                showBadge={showBadge}
+                data={orderedTopicData}
+                persona={persona as "Business Owner" | "Employee Member" | "General" | "Promo"}
+              />
+            ) : null,
+            rowSpan: 1,
+          },
+          {
+            content: (
+              <LandingPageCard
+                {...secondaryData}
+                description={secondaryData.optimized_content}
+                cta_text="Read More"
+                clamp={5}
+                onClick={() => handleArticleClick(secondaryData)}
+                className="h-full"
+                titleClassName="text-md"
+                contentClassName="text-base"
+                buttonClassName="text-sm"
+                cardClassName={`h-full ${
+                  personaColors[
+                    persona as "Business Owner" | "Employee Member" | "General" | "Promo"
+                  ]
+                }`}
+              />
+            ),
+            rowSpan: 1,
+          },
+        ]}
+      />
+
       <AuthModal
         isOpen={showModal}
         onClose={() => {

@@ -3,6 +3,7 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import { Badge } from "@/components/ui/badge";
 import Autoplay from "embla-carousel-autoplay";
 import { Card } from "./ui/card";
+import { cn } from "@/lib/utils";
 
 interface PricingTier {
   type: "member" | "non-member";
@@ -20,6 +21,7 @@ interface MeetingHeroProps {
     member: PricingTier;
     nonMember: PricingTier;
   };
+  isExpanded: boolean;
 }
 
 const MeetingHero = ({
@@ -29,6 +31,7 @@ const MeetingHero = ({
   ctaText = "Register Now",
   pricing,
   onClick,
+  isExpanded = true,
 }: MeetingHeroProps) => {
   return (
     <Card className="rounded-lg p-6 relative h-full">
@@ -36,9 +39,14 @@ const MeetingHero = ({
 
       <div className="relative w-full mx-auto flex flex-col">
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+          className={cn(
+            "flex",
+            isExpanded ? "flex-col gap-8" : "grid grid-cols-1 md:grid-cols-2 gap-6"
+          )}
+        >
           {/* Carousel Section */}
-          <div className="w-full h-[200px]">
+          <div className={cn("w-full", isExpanded ? "h-[400px]" : "h-[200px]")}>
             <Carousel
               className="w-full h-full"
               plugins={[
@@ -64,10 +72,12 @@ const MeetingHero = ({
           </div>
 
           {/* Text Content Section */}
-          <div className="flex flex-col h-[200px]">
-            <h2 className="text-md font-bold text-gray-900 mb-3">{headline}</h2>
-            <div className="overflow-y-auto flex-1">
-              <p className="text-base text-gray-600 line-clamp-6">{description}</p>
+          <div className={cn("flex flex-col", isExpanded ? "h-auto space-y-4" : "h-[200px]")}>
+            <h2 className="text-md font-bold text-gray-900">{headline}</h2>
+            <div className={cn("overflow-y-auto", isExpanded ? "flex-none" : "flex-1")}>
+              <p className={cn("text-base text-gray-600", isExpanded ? "" : "line-clamp-6")}>
+                {description}
+              </p>
             </div>
           </div>
         </div>
