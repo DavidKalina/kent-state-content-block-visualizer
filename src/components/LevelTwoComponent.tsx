@@ -135,7 +135,14 @@ const LevelTwoComponent = ({
               <TopicRecommendations
                 showBadge={showBadge}
                 data={orderedTopicData}
-                persona={persona as "Business Owner" | "Employee Member" | "General" | "Promo"}
+                persona={
+                  persona as
+                    | "Business Owner"
+                    | "Employee Owner Member"
+                    | "Employee"
+                    | "General"
+                    | "Promo"
+                }
               />
             ) : null,
             rowSpan: 1,

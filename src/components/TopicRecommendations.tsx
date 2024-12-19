@@ -10,14 +10,14 @@ import { personaColors } from "@/pages/HomePage";
 interface TopicRecommendationsProps {
   data: any;
   showBadge?: boolean;
-  persona: "Business Owner" | "Employee Member" | "General" | "Promo";
+  persona: "Business Owner" | "Employee" | "General" | "Promo" | "Employee Owner Member";
 }
 
 interface TopicCardProps {
   title: string;
   description: string;
   optimized_content: string;
-  persona: "Business Owner" | "Employee Member" | "General" | "Promo";
+  persona: "Business Owner" | "Employee" | "General" | "Promo" | "Employee Owner Member";
 }
 
 const TopicCard = ({ title, description, optimized_content, persona }: TopicCardProps) => {
