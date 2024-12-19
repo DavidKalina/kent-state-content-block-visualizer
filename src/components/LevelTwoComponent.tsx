@@ -8,7 +8,7 @@ import LandingPageCard from "./LandingPageCard";
 import MeetingHero from "./MeetingHero";
 import TopicRecommendations from "./TopicRecommendations";
 import FourPanelGrid from "./EqualGrid";
-import { personaColors } from "@/pages/HomePage";
+import { getRankedContent, personaColors } from "@/pages/HomePage";
 
 interface PricingTier {
   type: "member" | "non-member";
@@ -64,27 +64,20 @@ const LevelTwoComponent = ({
   const [pendingRedirect, setPendingRedirect] = useState<string | null>(null);
 
   const orderedTopicData = useMemo(
-    () =>
-      topicData
-        .filter((item) => item.persona === persona)
-        .sort((a, b) => b.relevance_score - a.relevance_score)
-        .slice(3, 6),
-    [topicData, persona]
+    () => getRankedContent(topicData, 3, persona, 3), // Gets items ranked 3-5
+    [persona, topicData]
   );
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, secondaryData] = useMemo(
-    () =>
-      topicData
-        .filter((item) => item.persona === persona)
-        .sort((a, b) => b.relevance_score - a.relevance_score),
+  const secondaryData = useMemo(
+    () => getRankedContent(topicData, 2, persona),
     [persona, topicData]
   );
 
   useScrollToTop();
 
   const handleArticleClick = (content: ContentData) => {
-    const targetUrl = `/article/${content.title}?title=${content.title}&description=${content.optimized_content}`;
+    const targetUrl = `/article/${content.title}?title=${content.title}&description=${content?.optimized_content}`;
 
     if (!isAuthenticated) {
       setPendingRedirect(targetUrl);
@@ -121,12 +114,17 @@ const LevelTwoComponent = ({
                 className="h-full"
                 cardClassName={`h-full ${
                   personaColors[
-                    persona as "Business Owner" | "Employee Member" | "General" | "Promo"
+                    persona as
+                      | "Business Owner"
+                      | "Employee"
+                      | "General"
+                      | "Promo"
+                      | "Employee Owner Member"
                   ]
                 }`}
                 titleClassName="text-md"
                 contentClassName="text-base"
-                description={mainContent.optimized_content}
+                description={mainContent?.optimized_content}
                 cta_text="Read More"
               />
             ),
@@ -146,7 +144,7 @@ const LevelTwoComponent = ({
             content: (
               <LandingPageCard
                 {...secondaryData}
-                description={secondaryData.optimized_content}
+                description={secondaryData?.optimized_content}
                 cta_text="Read More"
                 clamp={5}
                 onClick={() => handleArticleClick(secondaryData)}
@@ -156,7 +154,12 @@ const LevelTwoComponent = ({
                 buttonClassName="text-sm"
                 cardClassName={`h-full ${
                   personaColors[
-                    persona as "Business Owner" | "Employee Member" | "General" | "Promo"
+                    persona as
+                      | "Business Owner"
+                      | "Employee Owner Member"
+                      | "Employee"
+                      | "General"
+                      | "Promo"
                   ]
                 }`}
               />
