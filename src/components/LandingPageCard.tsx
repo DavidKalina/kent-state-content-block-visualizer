@@ -49,13 +49,18 @@ const LandingPageCard = ({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <CardHeader className={cn("flex-none", headerClassName)}>
-          <h3 className={cn("font-semibold text-xl leading-tight line-clamp-2", titleClassName)}>
+        <CardHeader className={cn("flex-none pt-6 pb-4", headerClassName)}>
+          <h3
+            className={cn(
+              "font-semibold text-xl leading-tight min-h-[3rem] flex items-center",
+              titleClassName
+            )}
+          >
             {title}
           </h3>
         </CardHeader>
 
-        <CardContent className={cn("flex-grow", contentClassName)}>
+        <CardContent className={cn("flex-grow py-2", contentClassName)}>
           <p
             className={cn(
               "text-gray-600",
@@ -74,7 +79,7 @@ const LandingPageCard = ({
           </p>
         </CardContent>
 
-        <CardFooter className={cn("flex-none pt-4", footerClassName)}>
+        <CardFooter className={cn("flex-none pt-4 pb-6", footerClassName)}>
           <Button
             onClick={() => onClick && onClick()}
             className={cn("w-full group", buttonClassName)}

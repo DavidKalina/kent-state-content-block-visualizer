@@ -12,7 +12,7 @@ import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Search, SlidersHorizontal, X } from "lucide-react";
-import data from "../data/results.json";
+import data from "../data/resultsTwo.json";
 import PersonaContentCard from "@/components/PersonaCard";
 
 const journeyStages = ["All", "Awareness", "Consideration", "Decision", "Adoption"];
@@ -40,35 +40,36 @@ export default function ContentBlocksPage() {
 
     // Apply filters
     if (selectedPersona !== "All") {
-      filtered = filtered.filter((content) => content.persona === selectedPersona);
+      filtered = filtered.filter((content) => content.result.persona === selectedPersona);
     }
     if (selectedStage !== "All") {
       filtered = filtered.filter(
-        (content) => content.journey_stage.toLowerCase() === selectedStage.toLowerCase()
+        (content) => content.result.journey_stage.toLowerCase() === selectedStage.toLowerCase()
       );
     }
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
         (content) =>
-          content.title.toLowerCase().includes(query) ||
-          content.description.toLowerCase().includes(query)
+          content.result.title.toLowerCase().includes(query) ||
+          content.result.description.toLowerCase().includes(query)
       );
     }
     filtered = filtered.filter(
       (content) =>
-        content.technical_level >= minTechnicalLevel && content.relevance_score >= minRelevance
+        content.result.technical_level >= minTechnicalLevel &&
+        content.result.relevance_score >= minRelevance
     );
 
     // Apply sorting
     filtered.sort((a, b) => {
       switch (sortBy) {
         case "relevance":
-          return b.relevance_score - a.relevance_score;
+          return b.result.relevance_score - a.result.relevance_score;
         case "technical":
-          return b.technical_level - a.technical_level;
+          return b.result.technical_level - a.result.technical_level;
         case "diversity":
-          return b.diversity_score - a.diversity_score;
+          return b.result.diversity_score - a.result.diversity_score;
         default:
           return 0;
       }
@@ -82,10 +83,10 @@ export default function ContentBlocksPage() {
     () => ({
       totalItems: filteredContent.length,
       avgRelevance:
-        filteredContent.reduce((acc, curr) => acc + curr.relevance_score, 0) /
+        filteredContent.reduce((acc, curr) => acc + curr.result.relevance_score, 0) /
         filteredContent.length,
       avgTechnicalLevel:
-        filteredContent.reduce((acc, curr) => acc + curr.technical_level, 0) /
+        filteredContent.reduce((acc, curr) => acc + curr.result.relevance_score, 0) /
         filteredContent.length,
     }),
     [filteredContent]
@@ -313,7 +314,7 @@ export default function ContentBlocksPage() {
         >
           {filteredContent.map((content, index) => (
             <div key={index} className={viewMode === "list" ? "max-w-3xl mx-auto w-full" : ""}>
-              <PersonaContentCard {...content} />
+              <PersonaContentCard {...content.result} />
             </div>
           ))}
         </div>

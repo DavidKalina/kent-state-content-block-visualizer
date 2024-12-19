@@ -46,7 +46,7 @@ const MeetingHero = ({
           )}
         >
           {/* Carousel Section */}
-          <div className={cn("w-full", isExpanded ? "h-[400px]" : "h-[200px]")}>
+          <div className={cn("w-full", isExpanded ? "h-[400px]" : "h-[190px]")}>
             <Carousel
               className="w-full h-full"
               plugins={[
@@ -72,7 +72,7 @@ const MeetingHero = ({
           </div>
 
           {/* Text Content Section */}
-          <div className={cn("flex flex-col", isExpanded ? "h-auto space-y-4" : "h-[200px]")}>
+          <div className={cn("flex flex-col", isExpanded ? "h-auto space-y-4" : "h-[190px]")}>
             <h2 className="text-md font-bold text-gray-900">{headline}</h2>
             <div className={cn("overflow-y-auto", isExpanded ? "flex-none" : "flex-1")}>
               <p className={cn("text-base text-gray-600", isExpanded ? "" : "line-clamp-6")}>

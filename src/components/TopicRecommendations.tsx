@@ -23,7 +23,6 @@ interface TopicCardProps {
 const TopicCard = ({ title, description, optimized_content, persona }: TopicCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Encode the parameters for URL safety
   const urlParams = new URLSearchParams({
     title: title,
     description: optimized_content,
@@ -64,26 +63,32 @@ const TopicCard = ({ title, description, optimized_content, persona }: TopicCard
 
 const TopicRecommendations = ({ data, persona, showBadge = true }: TopicRecommendationsProps) => {
   return (
-    <div className="space-y-2">
-      <div className="flex flex-col md:flex-row items-center gap-2">
-        <h2 className="text-lg font-semibold">Recommended Topics</h2>
-        {showBadge && (
-          <Badge variant="secondary" className="text-xs">
-            For {persona}s
-          </Badge>
-        )}
+    <div className="flex flex-col h-full">
+      {/* Fixed header */}
+      <div className="flex-none p-2 bg-white">
+        <div className="flex flex-col md:flex-row items-center gap-2">
+          <h2 className="text-lg font-semibold">Recommended Topics</h2>
+          {showBadge && (
+            <Badge variant="secondary" className="text-xs">
+              For {persona}s
+            </Badge>
+          )}
+        </div>
       </div>
 
-      <div className="grid gap-2 md:max-h-[340px] flex-1 overflow-y-auto">
-        {data.map((item: any, index: number) => (
-          <TopicCard
-            persona={persona}
-            key={index}
-            description={item.description}
-            optimized_content={item.optimized_content}
-            title={item.title}
-          />
-        ))}
+      {/* Scrollable content */}
+      <div className="flex-1 overflow-auto p-2 pb-0">
+        <div className="grid gap-2">
+          {data.map((item: any, index: number) => (
+            <TopicCard
+              persona={persona}
+              key={index}
+              description={item.description}
+              optimized_content={item.optimized_content}
+              title={item.title}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

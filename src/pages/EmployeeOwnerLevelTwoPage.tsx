@@ -1,18 +1,16 @@
-import LevelTwoComponent from "@/components/LevelTwoComponent";
 import imageOne from "@/assets/conference-image-1.jpg";
 import imageTwo from "@/assets/conference-image-2.jpg";
 import imageThree from "@/assets/conference-image-3.jpg";
 import imageFour from "@/assets/conference-image-4.jpg";
 import imageFive from "@/assets/conference-image-5.jpg";
+import LevelTwoComponent from "@/components/LevelTwoComponent";
 import topicData from "@/data/resultsTwo.json";
 import { useNavigate } from "react-router-dom";
 import { getRankedContent } from "./HomePage";
-import { useAuth } from "@/hooks/useAuth";
 
 const EmployeeOwnerLevelTwoPage = () => {
   const navigate = useNavigate();
 
-  const { isAuthenticated } = useAuth();
   return (
     <LevelTwoComponent
       heroCtaClick={() => navigate("/conference-registration")}
@@ -32,13 +30,9 @@ const EmployeeOwnerLevelTwoPage = () => {
           additional: 900,
         },
       }}
-      mainContent={getRankedContent(
-        topicData,
-        1,
-        isAuthenticated ? "Employee Owner Member" : "Business Owner"
-      )}
+      mainContent={getRankedContent(topicData, 1, "Employee Owner Member")}
       topicData={topicData}
-      persona={isAuthenticated ? "Employee Owner Member" : "Business Owner"}
+      persona="Employee Owner Member"
     />
   );
 };

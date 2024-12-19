@@ -4,14 +4,13 @@ import SocialProof from "@/components/SocialProof";
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import data from "@/data/resultsTwo.json";
-import { useAuth } from "@/hooks/useAuth";
 
 export const personaColors = {
-  Employee: "bg-gradient-to-r from-[#fffaf0] via-[#fef8e7] to-[#fffaf0]", // Subtle pastel yellow
-  "Business Owner": "bg-gradient-to-r from-[#f0f9ff] via-[#e8f5fe] to-[#f0f9ff]", // Light pastel blue
-  "Employee Owner Member": "bg-gradient-to-r from-[#f0f9ff] via-[#e8f5fe] to-[#f0f9ff]", // Light pastel blue
-  Promo: "bg-gradient-to-r from-[#fcf4ff] via-[#f7e8fc] to-[#fcf4ff]", // Very light pastel purple
-  General: "bg-gradient-to-r from-[#f4fff8] via-[#e8fcef] to-[#f4fff8]", // Subtle pastel green
+  Employee: "bg-gradient-to-r from-[#fffcf7] via-[#fffbf2] to-[#fffcf7]", // Very subtle warm
+  "Business Owner": "bg-gradient-to-r from-[#f7fcff] via-[#f2faff] to-[#f7fcff]", // Very subtle cool
+  "Employee Owner Member": "bg-gradient-to-r from-[#f7fcff] via-[#f2faff] to-[#f7fcff]", // Very subtle cool
+  Promo: "bg-gradient-to-r from-[#fcf7ff] via-[#f9f2ff] to-[#fcf7ff]", // Very subtle purple
+  General: "bg-gradient-to-r from-[#f7fffa] via-[#f2fff7] to-[#f7fffa]", // Very subtle mint
 };
 
 export const getRankedContent = (
@@ -50,8 +49,6 @@ const HomePage = () => {
 
   const navigate = useNavigate();
 
-  const { isAuthenticated } = useAuth();
-
   const generalData = {
     persona: "Employee Member",
     journey_stage: "awareness",
@@ -86,13 +83,7 @@ const HomePage = () => {
     total_persona_stage_content: 98,
   };
 
-  const ownerData = useMemo(
-    () =>
-      isAuthenticated
-        ? getRankedContent(data, 1, "Employee Owner Member")
-        : getRankedContent(data, 1, "Business Owner"),
-    [isAuthenticated]
-  );
+  const ownerData = useMemo(() => getRankedContent(data, 1, "Employee Owner Member"), []);
 
   return (
     <div className="min-h-screen bg-gray-50 p-8 md:p-16">
